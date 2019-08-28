@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <MainPart/>
+        <PreacherPart/>
+        <DetailsPart/>
+        <VideoInvite/>
+        <Registration/>
+        <Contacts/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainPart from './components/MainPart.vue';
+import DetailsPart from "@/components/DetailsPart";
+import PreacherPart from '@/components/PreacherPart.vue';
+import VideoInvite from "@/components/VideoInvite";
+import Registration from "@/components/Registration";
+import Contacts from "@/components/Contacts";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    MainPart,
+    DetailsPart,
+    PreacherPart,
+    VideoInvite,
+    Registration,
+    Contacts,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @font-face {
+    font-family: GothamProNarrow; /* Гарнитура шрифта */
+    src: url(fonts/GothamProNarrow.ttf); /* Путь к файлу со шрифтом */
+  }
+  body {
+    margin: 0;
+    font-family: GothamProNarrow;
+    text-transform: uppercase;
+  }
+  #app {
+
+  }
 </style>

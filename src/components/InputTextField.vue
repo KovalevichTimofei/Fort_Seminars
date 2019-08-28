@@ -1,0 +1,46 @@
+<template>
+    <input
+            type="text"
+            v-bind:value="value"
+            v-bind:placeholder="label"
+            v-on:input="$emit('input', $event.target.value)"
+    >
+</template>
+
+<script>
+  export default {
+    name: "InputTextField",
+    props: ['label', 'value'],
+  }
+</script>
+
+<style scoped>
+    input {
+        margin: 12px 0 0 12px;
+        border: solid firebrick 2px;
+        border-radius: 10px;
+        min-width: 400px;
+        height: 50px;
+        padding: 5px 10px;
+        color: firebrick;
+        font: 16px GothamProNarrow;
+    }
+    input:focus {
+         outline: 0;
+         border-width: 4px;
+         margin: 10px 0 0 10px;
+     }
+    ::-webkit-input-placeholder {
+        color: firebrick;
+        font: 16px GothamProNarrow;
+    }
+    ::-moz-placeholder {
+        color: firebrick;
+    }
+    :-moz-placeholder {
+        color: firebrick;
+    }
+    :-ms-input-placeholder {
+        color: firebrick;
+    }
+</style>

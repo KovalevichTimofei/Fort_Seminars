@@ -1,0 +1,9 @@
+@font-face {
+    font-family: GothamProNarrow; /* Гарнитура шрифта */
+    src: url(../../src/fonts/GothamProNarrow.ttf); /* Путь к файлу со шрифтом */
+}
+.body {
+    margin: 0;
+    font-family: GothamProNarrow;
+    text-transform: uppercase;
+}
