@@ -14,7 +14,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" type="text/scss" scoped>
     input {
         margin: 12px 0 0 12px;
         border: solid firebrick 2px;
@@ -24,6 +24,10 @@
         padding: 5px 10px;
         color: firebrick;
         font: 16px GothamProNarrow;
+
+        @media(max-width: 500px) {
+            min-width: 300px;
+        }
     }
     input:focus {
          outline: 0;

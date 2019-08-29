@@ -32,6 +32,18 @@
             margin: 50px;
             color: #3E1229;
             font-size: 30px;
+
+            @media(max-width: 950px) {
+                font-size: 25px;
+            }
+            @media(max-width: 720px) {
+                margin: 20px 50px;
+                font-size: 20px;
+            }
+            @media(max-width: 450px) {
+                margin: 20px 50px;
+                font-size: 15px;
+            }
         }
         .title-shadow {
             font-size: 8rem;
@@ -41,6 +53,10 @@
             position: absolute;
             z-index: 0;
         }
+
+        @media(max-width: 720px) {
+            margin-top: 20px;
+        }
     }
     .preacher-card-container {
         display: flex;
@@ -49,6 +65,16 @@
             width: 200px;
             height: 200px;
             border-radius: 100px;
+
+            @media(max-width: 720px) {
+                width: 150px;
+                height: 150px;
+            }
+            @media(max-width: 450px) {
+                width: 100px;
+                height: 100px;
+                margin-top: 30px;
+            }
         }
     }
 
@@ -65,6 +91,10 @@
             background-color: black;
             width: 200px;
             margin: 0 20px;
+        }
+
+        @media(max-width: 450px) {
+            margin-left: 20px;
         }
     }
 </style>

@@ -47,6 +47,14 @@
 
         .title {
             margin-bottom: 70px;
+
+            @media(max-width: 720px) {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media(max-width: 720px) {
+            margin: 20px 0 40px 0;
         }
     }
     .form {

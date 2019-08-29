@@ -11,7 +11,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" type="text/scss" scoped>
     .btn {
         border: .1rem solid;
         border-radius: .8rem;

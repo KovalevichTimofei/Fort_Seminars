@@ -30,8 +30,19 @@
         text-transform: uppercase;
         font-size: 30px;
 
+        @media(max-width: 950px) {
+            font-size: 25px;
+        }
+        @media(max-width: 720px) {
+            padding: 20px 0 30px 0;
+        }
+
         .title {
             margin-bottom: 70px;
+
+            @media(max-width: 720px) {
+                margin-bottom: 40px;
+            }
         }
     }
     .subtitle {

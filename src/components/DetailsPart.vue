@@ -1,8 +1,6 @@
 <template>
     <div class="details-part" id="schedule">
         <SectionTitle title="Детали" classname="light" class="title"/>
-        <!--<div class="title">Детали</div>
-        <div class="title-shadow">Детали</div>-->
         <vue-event-calendar class="calendar" :events="demoEvents"></vue-event-calendar>
     </div>
 </template>
@@ -45,6 +43,13 @@
 
         .title {
             margin-bottom: 80px;
+
+            @media(max-width: 720px) {
+                margin-bottom: 50px;
+            }
+        }
+        @media(max-width: 720px) {
+            padding: 30px 0;
         }
     }
 </style>
@@ -60,5 +65,31 @@
         .title {
             color: black;
         }
+        @media(max-width: 1250px) {
+            .cal-wrapper, .events-wrapper {
+                width: 46%;
+            }
+        }
+        @media(max-width: 767px) {
+            width: 50%;
+            .cal-wrapper, .events-wrapper {
+                width: 100%;
+            }
+        }
+        @media(max-width: 500px) {
+            width: 70%;
+            .cal-wrapper, .events-wrapper {
+                width: 100%;
+            }
+        }
     }
 </style>
+
+
+
+
+
+
+
+
+

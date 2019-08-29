@@ -10,6 +10,7 @@
           <div><a href="#signup">Регистрация</a></div>
           <div><a href="#contacts">Контакты</a></div>
         </div>
+        <i class="fa fa-bars burger" aria-hidden="true"></i>
       </div>
       <div class="main-info">
         <div>
@@ -26,6 +27,7 @@
 
 <script>
   import btn from './Button';
+  import 'font-awesome/css/font-awesome.min.css';
 
   export default {
     name: 'MainPart',
@@ -46,6 +48,15 @@
     padding: 5% 10% 10%;
     background-color: #3E1229;
     position: relative;
+
+      @media(max-width: 1250px) {
+          padding: 5% 6% 10%;
+          width: 88%;
+      }
+      @media(max-width: 1000px) {
+          padding: 5% 5% 10%;
+          width: 90%;
+      }
   }
   .top-menu {
     display: flex;
@@ -66,6 +77,10 @@
     width: 100%;
     font-size: 20px;
 
+    @media(max-width: 1000px) {
+      display: none;
+    }
+
     div > a {
       color: white;
       text-decoration: none;
@@ -75,7 +90,13 @@
       text-decoration: underline;
     }
   }
+  .burger {
+    color: white;
 
+    @media(min-width: 1001px) {
+      display: none;
+    }
+  }
   .main-info {
     position: relative;
     min-height: 700px;
@@ -83,6 +104,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    @media(max-width: 894px) {
+      min-height: 600px;
+    }
+    @media(max-width: 750px) {
+      min-height: 500px;
+    }
+    @media(max-width: 650px) {
+      min-height: 450px;
+    }
+    @media(max-width: 550px) {
+      min-height: 400px;
+    }
+    @media(max-width: 450px) {
+      min-height: 350px;
+    }
 
     div > div, .signup {
       position: relative;
@@ -99,12 +136,20 @@
 
     .signup {
       justify-self: self-end;
+
+      @media(max-width: 650px) {
+        font-size: 20px;
+      }
     }
 
     img {
       opacity: .3;
       position: absolute;
       top: 0;
+
+      @media(max-width: 894px) {
+        width: 100%;
+      }
     }
     .img::selection {
       background: transparent;

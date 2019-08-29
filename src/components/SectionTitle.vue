@@ -12,7 +12,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" type="text/scss" scoped>
     .title-container {
         position: relative;
         text-align: center;
@@ -22,6 +22,13 @@
         font-size: 30px;
         position: relative;
         z-index: 1;
+
+        @media(max-width: 950px) {
+            font-size: 25px;
+        }
+        @media(max-width: 500px) {
+            font-size: 20px;
+        }
     }
     .title-shadow {
         font-size: 8rem;
@@ -33,6 +40,20 @@
         top: 1rem;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @media(max-width: 950px) {
+            top: 0.75rem;
+            font-size: 6rem;
+            line-height: 6rem;
+        }
+        @media(max-width: 720px) {
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+        @media(max-width: 500px) {
+            font-size: 3rem;
+            line-height: 3rem;
+        }
     }
     .dark-title, .dark-subtitle {
         color: #3E1229;

@@ -15,9 +15,19 @@
   }
 </script>
 
-<style scoped>
-    .video{
+<style lang="scss" type="text/scss" scoped>
+    .video {
         width: 100%;
         min-height: 720px;
+
+        @media(max-width: 1280px) {
+            min-height: 500px;
+        }
+        @media(max-width: 890px) {
+            min-height: 300px;
+        }
+        @media(max-width: 530px) {
+            min-height: 200px;
+        }
     }
 </style>
