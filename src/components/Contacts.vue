@@ -1,7 +1,6 @@
 <template>
     <footer class="contacts-part" id="contacts">
-        <div class="title">Контакты</div>
-        <div class="title-shadow">Контакты</div>
+        <SectionTitle title="Контакты" classname="light" class="title"/>
         <div class="subtitle">По всем вопросам</div>
         <div class="divider"></div>
         <div class="info">
@@ -12,8 +11,11 @@
 </template>
 
 <script>
+  import SectionTitle from "@/components/SectionTitle";
+
   export default {
-    name: "Contacts"
+    name: "Contacts",
+    components: { SectionTitle },
   }
 </script>
 
@@ -29,20 +31,7 @@
         font-size: 30px;
 
         .title {
-            margin: 50px;
-            color: firebrick;
-            font-size: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        .title-shadow {
-            font-size: 8rem;
-            line-height: 8rem;
-            margin: 0;
-            opacity: .1;
-            position: absolute;
-            z-index: 0;
-            color: white;
+            margin-bottom: 70px;
         }
     }
     .subtitle {

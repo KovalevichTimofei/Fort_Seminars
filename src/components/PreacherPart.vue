@@ -1,7 +1,6 @@
 <template>
     <div id="details" class="preacher-part">
-        <div>Проповедник</div>
-        <div class="title-shadow">Проповедник</div>
+        <SectionTitle title="Проповедник" classname="dark"/>
         <div class="preacher-card-container">
             <img src="../assets/pritcher_photo.jpg" alt="Портрет проповедника">
             <div class="info-container">
@@ -14,8 +13,11 @@
 </template>
 
 <script>
+  import SectionTitle from "@/components/SectionTitle";
+
   export default {
-    name: "PreacherPart"
+    name: "PreacherPart",
+    components: { SectionTitle },
   }
 </script>
 

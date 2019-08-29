@@ -32,8 +32,8 @@ export default {
 
 <style>
   @font-face {
-    font-family: GothamProNarrow; /* Гарнитура шрифта */
-    src: url(fonts/GothamProNarrow.ttf); /* Путь к файлу со шрифтом */
+    font-family: GothamProNarrow;
+    src: url(fonts/GothamProNarrow.ttf);
   }
   body {
     margin: 0;

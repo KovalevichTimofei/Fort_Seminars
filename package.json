@@ -9,6 +9,7 @@
     "storybook": "start-storybook"
   },
   "dependencies": {
+    "@storybook/addon-notes": "^5.1.11",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-event-calendar": "^1.5.2"

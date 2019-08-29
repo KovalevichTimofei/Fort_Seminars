@@ -1,7 +1,8 @@
 <template>
-    <div class="details-part">
-        <div class="title">Детали</div>
-        <div class="title-shadow">Детали</div>
+    <div class="details-part" id="schedule">
+        <SectionTitle title="Детали" classname="light" class="title"/>
+        <!--<div class="title">Детали</div>
+        <div class="title-shadow">Детали</div>-->
         <vue-event-calendar class="calendar" :events="demoEvents"></vue-event-calendar>
     </div>
 </template>
@@ -10,10 +11,12 @@
   import Vue from 'vue';
   import 'vue-event-calendar/dist/style.css';
   import vueEventCalendar from 'vue-event-calendar';
+  import SectionTitle from "@/components/SectionTitle";
 
   Vue.use(vueEventCalendar, {locale: 'ru'});
   export default {
     name: "DetailsPart",
+    components: { SectionTitle },
     data() {
       return {
         demoEvents: [{
@@ -41,20 +44,7 @@
         font-size: 30px;
 
         .title {
-            margin: 50px;
-            color: firebrick;
-            font-size: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        .title-shadow {
-            font-size: 8rem;
-            line-height: 8rem;
-            margin: 0;
-            opacity: .1;
-            position: absolute;
-            z-index: 0;
-            color: white;
+            margin-bottom: 80px;
         }
     }
 </style>

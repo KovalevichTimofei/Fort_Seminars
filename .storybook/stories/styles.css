@@ -1,6 +1,6 @@
 @font-face {
-    font-family: GothamProNarrow; /* Гарнитура шрифта */
-    src: url(../../src/fonts/GothamProNarrow.ttf); /* Путь к файлу со шрифтом */
+    font-family: GothamProNarrow;
+    src: url(../../src/fonts/GothamProNarrow.ttf);
 }
 .body {
     margin: 0;

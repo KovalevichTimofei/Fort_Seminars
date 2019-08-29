@@ -1,7 +1,6 @@
 <template>
     <div class="signup-part" id="signup">
-        <div class="title">Регистрация</div>
-        <div class="title title-shadow">Регистрация</div>
+        <SectionTitle title="Регистрация" classname="dark" class="title"/>
         <div class="form">
             <InputTextField
                     v-model="name"
@@ -21,12 +20,14 @@
 <script>
     import InputTextField from "@/components/InputTextField";
     import Button from "@/components/Button";
+    import SectionTitle from "@/components/SectionTitle";
 
   export default {
     name: "Registration",
     components: {
       InputTextField,
       Button,
+      SectionTitle,
     },
     data: function () {
       return {
@@ -45,18 +46,7 @@
         align-items: center;
 
         .title {
-            margin: 50px;
-            color: #3E1229;
-            font-size: 30px;
-        }
-        .title-shadow {
-            font-size: 8rem;
-            line-height: 8rem;
-            margin: 0;
-            opacity: .1;
-            position: absolute;
-            z-index: 0;
-
+            margin-bottom: 70px;
         }
     }
     .form {
