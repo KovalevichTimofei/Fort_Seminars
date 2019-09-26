@@ -2,7 +2,7 @@
     <iframe
             id="invite"
             class="video"
-            src="https://www.youtube.com/embed/z14zsBbfLec"
+            v-bind:src="seminar.invite_link"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -10,8 +10,13 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
-    name: "VideoInvite"
+    name: "VideoInvite",
+    computed: mapState({
+      seminar: state => state.seminars.seminar,
+    }),
   }
 </script>
 

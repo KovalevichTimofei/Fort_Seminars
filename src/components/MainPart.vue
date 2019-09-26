@@ -1,8 +1,15 @@
 <template>
-  <div class="main-part">
+  <div v-if="!loading" class="main-part">
     <div class="main-container">
       <div class="top-menu">
         <div class="main-logo">Церковь Фортечная</div>
+        <input id="burger" type="checkbox">
+        <label for="burger">
+          <i class="fa fa-bars burger" aria-hidden="true"></i>
+        </label>
+        <label class="fon-label" for="burger">
+          <div class="fon"></div>
+        </label>
         <div class="top-menu-tabs">
           <div><a href="#schedule">Расписание</a></div>
           <div><a href="#details">Детали</a></div>
@@ -10,24 +17,25 @@
           <div><a href="#signup">Регистрация</a></div>
           <div><a href="#contacts">Контакты</a></div>
         </div>
-        <i class="fa fa-bars burger" aria-hidden="true"></i>
       </div>
       <div class="main-info">
         <div>
           <div class="">Семинар</div>
-          <div class="seminar-title">"Душепопечение, как это работает"</div>
-          <div class="date">17.09.2019</div>
+          <div class="seminar-title">"{{seminar.title}}"</div>
+          <div class="date">{{seminar.period}}</div>
         </div>
         <btn class="signup" title="Регистрация"></btn>
-        <img src="../assets/church_logo.jpg">
+        <img src="../assets/church_logo5.jpg">
       </div>
     </div>
   </div>
+  <div v-else><CircleSpinner /></div>
 </template>
 
 <script>
   import btn from './Button';
   import 'font-awesome/css/font-awesome.min.css';
+  import { mapState } from 'vuex';
 
   export default {
     name: 'MainPart',
@@ -37,6 +45,10 @@
     components: {
       btn
     },
+    computed: mapState({
+      seminar: state => state.seminars.seminar,
+      loading: state => state.seminars.loading,
+    })
   }
 </script>
 
@@ -46,7 +58,7 @@
     width: 80%;
     min-height: 100%;
     padding: 5% 10% 10%;
-    background-color: #3E1229;
+    background-color: #4C3327;//#3E1229;
     position: relative;
 
       @media(max-width: 1250px) {
@@ -63,12 +75,23 @@
     width: 100%;
     justify-content: space-between;
     padding-bottom: 50px;
+
+    @media(max-width: 1000px) {
+      display: -webkit-box;
+    }
   }
   .main-logo {
     display: flex;
     align-items: center;
     font-size: 30px;
-    color: firebrick;
+    color: #CB8C1D;//firebrick;
+
+    @media(max-width: 500px) {
+      font-size: 25px;
+    }
+  }
+  #burger {
+    display: none;
   }
   .top-menu-tabs {
     padding-top: 5px;
@@ -77,12 +100,8 @@
     width: 100%;
     font-size: 20px;
 
-    @media(max-width: 1000px) {
-      display: none;
-    }
-
     div > a {
-      color: white;
+      color: #F2EFE4;//white;
       text-decoration: none;
     }
 
@@ -91,11 +110,58 @@
     }
   }
   .burger {
-    color: white;
+    color: #F2EFE4;//white;
 
     @media(min-width: 1001px) {
       display: none;
     }
+  }
+  .top-menu-tabs {
+      transition: 400ms;
+  }
+  @media(max-width: 1000px) {
+      #burger:not(:checked) ~ .top-menu-tabs {
+          position: fixed;
+          top: -100px;
+          right: 0;
+      }
+  }
+  #burger:checked ~ .top-menu-tabs {
+    background-color: #4C3327;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    z-index: 5;
+    padding: 0;
+
+      div {
+          padding: 20px;
+      }
+      a {
+          color: #F2EFE4;
+      }
+  }
+  .fon {
+      transition: 400ms;
+  }
+  #burger:checked ~ label > .fon {
+    background-color: black;
+    opacity: .5;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #burger:not(:checked) ~ label > .fon {
+    opacity: 0;
   }
   .main-info {
     position: relative;
@@ -126,7 +192,7 @@
       z-index: 1;
       font-size: 30px;
       padding: 20px;
-      color: white;
+      color: #F2EFE4;//white;
       margin-left: 30px;
     }
 

@@ -1,7 +1,12 @@
 <template>
-    <div class="details-part" id="schedule">
+    <div v-if="!loading" class="details-part" id="schedule">
         <SectionTitle title="Детали" classname="light" class="title"/>
-        <vue-event-calendar class="calendar" :events="demoEvents"></vue-event-calendar>
+        <vue-event-calendar
+                class="calendar"
+                :events="lessons"
+                @month-changed="handleMonthChanged"
+        >
+        </vue-event-calendar>
     </div>
 </template>
 
@@ -10,6 +15,8 @@
   import 'vue-event-calendar/dist/style.css';
   import vueEventCalendar from 'vue-event-calendar';
   import SectionTitle from "@/components/SectionTitle";
+
+  import { mapState, mapActions } from 'vuex';
 
   Vue.use(vueEventCalendar, {locale: 'ru'});
   export default {
@@ -25,8 +32,47 @@
           title: 'Часть 2',
           desc: 'Часть 2 семинара "Душепопечение, как это работает?"',
         }],
+        monthNumber: new Date().getMonth() + 1,
       };
     },
+    methods: {
+      handleMonthChanged(data) {
+        this.monthNumber = +data.split('.')[0];
+        this.$store.dispatch('lessons/fetchLessonsByMonth', this.monthNumber);
+        document.getElementsByClassName('calendar')[0].addEventListener('click', this.func);
+        },
+      crutchForCalendar(event) {
+        if (event.target.className !== 'date-num' ||
+          !(~event.target.parentNode.className.indexOf('event'))) {
+          this.$store.dispatch('lessons/reWriteLessons');
+        }
+      },
+      ...mapActions('lessons', [
+        'fetchLessonsByMonth', 'reWriteLessons'
+        ]),
+    },
+    computed: {
+      ...mapState({
+        lessons: state => {
+          return state.lessons.lessons.map(el => {
+            const date = new Date(el.date);
+            return {
+              date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() + 1}`,
+              title: `Часть ${el.part_numb}`,
+              desc: el.info,
+            }
+          });
+        },
+        loading: state => state.lessons.loading,
+      })
+    },
+    async created() {
+      await this.$store.dispatch('lessons/fetchLessonsByMonth', this.monthNumber);
+      document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
+    },
+    updated() {
+      document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
+    }
   }
 </script>
 
@@ -36,8 +82,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #3E1229;
-        color: white;
+        background-color: #4C3327;//#3E1229;
+        color: #F2EFE4;//white;
         text-transform: uppercase;
         font-size: 30px;
 
@@ -58,12 +104,12 @@
     .calendar {
         .cal-wrapper .cal-header {
             padding-bottom: 0;
-            color: #2c3e50;
+            color: #4C3327;//#2c3e50;
             //font-family: Avenir,Helvetica,Arial,sans-serif;
             font-size: 15px;
         }
         .title {
-            color: black;
+            color: #4C3327;//black;
         }
         @media(max-width: 1250px) {
             .cal-wrapper, .events-wrapper {

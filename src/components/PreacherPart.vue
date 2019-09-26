@@ -1,23 +1,29 @@
 <template>
-    <div id="details" class="preacher-part">
+    <div v-if="!loading" id="details" class="preacher-part">
         <SectionTitle title="Проповедник" classname="dark"/>
         <div class="preacher-card-container">
-            <img src="../assets/pritcher_photo.jpg" alt="Портрет проповедника">
+            <img v-bind:src="preacher.photo_url" alt="Портрет проповедника">
             <div class="info-container">
-                <div class="pritcher-ifo">Алексей Коломийцев</div>
+                <div class="pritcher-ifo">{{preacher. ifo}}</div>
                 <div class="divider"></div>
-                <div class="pritcher-description">Пастор-учитель Библейской церкви "СЛОВО БЛАГОДАТИ", Батл Граунд, Вашингтон, США</div>
+                <div class="pritcher-description">{{preacher. info}}</div>
             </div>
         </div>
     </div>
+    <div v-else><CircleSpinner /></div>
 </template>
 
 <script>
   import SectionTitle from "@/components/SectionTitle";
+  import { mapState } from 'vuex';
 
   export default {
     name: "PreacherPart",
     components: { SectionTitle },
+    computed: mapState({
+      loading: state => state.preachers.loading,
+      preacher: state => state.preachers.preacher,
+    }),
   }
 </script>
 
@@ -30,7 +36,7 @@
 
         & > div {
             margin: 50px;
-            color: #3E1229;
+            color: #4C3327;//#3E1229;
             font-size: 30px;
 
             @media(max-width: 950px) {
@@ -88,7 +94,7 @@
 
         .divider {
             height: 3px;
-            background-color: black;
+            background-color: #4C3327;//black;
             width: 200px;
             margin: 0 20px;
         }

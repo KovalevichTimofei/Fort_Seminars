@@ -1,5 +1,5 @@
 <template>
-    <div class="btn">
+    <div class="btn" @click="submit">
         {{title}}
     </div>
 </template>
@@ -8,6 +8,11 @@
   export default {
     name: "Button",
     props: ['title', ],
+    methods:{
+      submit(){
+       this.$emit('submit');
+      }
+    }
   }
 </script>
 
@@ -24,7 +29,7 @@
     }
     .btn:hover {
         cursor: pointer;
-        background-color: rgba(178, 34, 34, .2);
+        background-color: rgba(203, 140, 29, .2);
     }
     .btn::selection {
         background: transparent;

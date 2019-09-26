@@ -25,8 +25,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #3E1229;
-        color: white;
+        background-color: #4C3327;//#3E1229;
+        color: #F2EFE4;//white;
         text-transform: uppercase;
         font-size: 30px;
 
@@ -50,7 +50,7 @@
     }
     .divider {
         height: 3px;
-        background-color: white;
+        background-color: #F2EFE4;//white;
         width: 200px;
         margin: 10px 0;
     }
@@ -59,7 +59,7 @@
         margin: 10px 0;
 
         span {
-            color: firebrick;
+            color: #CB8C1D;//firebrick;
         }
     }
 </style>

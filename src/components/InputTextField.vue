@@ -17,12 +17,12 @@
 <style lang="scss" type="text/scss" scoped>
     input {
         margin: 12px 0 0 12px;
-        border: solid firebrick 2px;
+        border: solid #CB8C1D 2px;
         border-radius: 10px;
         min-width: 400px;
         height: 50px;
         padding: 5px 10px;
-        color: firebrick;
+        color: #CB8C1D;//firebrick;
         font: 16px GothamProNarrow;
 
         @media(max-width: 500px) {
@@ -35,16 +35,16 @@
          margin: 10px 0 0 10px;
      }
     ::-webkit-input-placeholder {
-        color: firebrick;
+        color: #CB8C1D;//firebrick;
         font: 16px GothamProNarrow;
     }
     ::-moz-placeholder {
-        color: firebrick;
+        color: #CB8C1D;//firebrick;
     }
     :-moz-placeholder {
-        color: firebrick;
+        color: #CB8C1D;//firebrick;
     }
     :-ms-input-placeholder {
-        color: firebrick;
+        color: #CB8C1D;//firebrick;
     }
 </style>

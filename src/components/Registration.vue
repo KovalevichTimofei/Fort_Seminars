@@ -10,9 +10,19 @@
             <InputTextField
                     v-model="surname"
                     label="Фамилия"
-                    v-bind:value="name"
+                    v-bind:value="surname"
             ></InputTextField>
-            <Button class="signup" title="Зарегистрироваться"></Button>
+            <InputTextField
+                    v-model="email"
+                    label="Электронная почта"
+                    v-bind:value="email"
+            ></InputTextField>
+            <Button
+               @submit="handleRegister"
+               class="signup"
+               title="Зарегистрироваться"
+            >
+            </Button>
         </div>
     </div>
 </template>
@@ -22,20 +32,41 @@
     import Button from "@/components/Button";
     import SectionTitle from "@/components/SectionTitle";
 
-  export default {
-    name: "Registration",
-    components: {
-      InputTextField,
-      Button,
-      SectionTitle,
-    },
-    data: function () {
-      return {
-        name: '',
-        surname: '',
+    import { mapState, mapActions } from 'vuex';
+
+      export default {
+        name: "Registration",
+        components: {
+          InputTextField,
+          Button,
+          SectionTitle,
+        },
+        data: function () {
+          return {
+            name: '',
+            surname: '',
+            email: '',
+          }
+        },
+        methods: {
+          handleRegister() {
+            this.$store.dispatch('users/registerUser', {
+              name: this.name,
+              surname: this.surname,
+              email: this.email,
+              seminar: this.seminar,
+            });
+          },
+          ...mapActions('users', ['registerUser']),
+        },
+        computed: {
+          ...mapState({
+            loading: state => state.users.loading,
+            success: state => state.users.success,
+            seminar: state => state.seminars.seminar,
+          })
+        },
       }
-    }
-  }
 </script>
 
 <style lang="scss" type="text/scss" scoped>
@@ -65,7 +96,7 @@
         .signup {
             font-size: 20px;
             padding: 20px;
-            color: firebrick;
+            color: #CB8C1D;//firebrick;
             margin: 12px 0;
         }
     }
