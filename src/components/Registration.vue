@@ -70,6 +70,8 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .signup-part {
         margin: 50px 0;
         display: flex;
@@ -96,7 +98,7 @@
         .signup {
             font-size: 20px;
             padding: 20px;
-            color: #CB8C1D;//firebrick;
+            color: $letters-color;
             margin: 12px 0;
         }
     }

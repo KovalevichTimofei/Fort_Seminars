@@ -28,6 +28,8 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .preacher-part {
         display: flex;
         flex-direction: column;

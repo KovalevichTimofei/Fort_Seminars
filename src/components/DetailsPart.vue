@@ -77,13 +77,15 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .details-part {
         padding: 50px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #4C3327;//#3E1229;
-        color: #F2EFE4;//white;
+        background-color: $dark-main-color;
+        color: $light-main-color;
         text-transform: uppercase;
         font-size: 30px;
 
@@ -101,15 +103,17 @@
 </style>
 
 <style lang="scss" type="text/scss">
+    @import "../assets/theme.scss";
+
     .calendar {
         .cal-wrapper .cal-header {
             padding-bottom: 0;
-            color: #4C3327;//#2c3e50;
+            color: $dark-main-color;
             //font-family: Avenir,Helvetica,Arial,sans-serif;
             font-size: 15px;
         }
         .title {
-            color: #4C3327;//black;
+            color: $dark-main-color;
         }
         @media(max-width: 1250px) {
             .cal-wrapper, .events-wrapper {

@@ -13,6 +13,8 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .title-container {
         position: relative;
         text-align: center;
@@ -36,7 +38,7 @@
         opacity: .1;
         position: absolute;
         z-index: 0;
-        color: #F2EFE4;//white;
+        color: $light-main-color;
         top: 1rem;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -56,13 +58,13 @@
         }
     }
     .dark-title, .dark-subtitle {
-        color: #4C3327;//#3E1229;
+        color: $dark-main-color;
     }
     .light-title {
-        color: #CB8C1D;//firebrick;
+        color: $letters-color;
     }
     .light-subtitle {
-        color: #F2EFE4;//white;
+        color: $light-main-color;
     }
 
 </style>

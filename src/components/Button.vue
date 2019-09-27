@@ -17,6 +17,8 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .btn {
         border: .1rem solid;
         border-radius: .8rem;
@@ -29,7 +31,7 @@
     }
     .btn:hover {
         cursor: pointer;
-        background-color: rgba(203, 140, 29, .2);
+        background-color: $button-hovered-color;
     }
     .btn::selection {
         background: transparent;

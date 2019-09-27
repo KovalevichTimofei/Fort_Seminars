@@ -54,11 +54,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" type="text/scss" scoped>
+  @import "../assets/theme.scss";
+
   .main-part {
     width: 80%;
     min-height: 100%;
     padding: 5% 10% 10%;
-    background-color: #4C3327;//#3E1229;
+    background-color: $dark-main-color;
     position: relative;
 
       @media(max-width: 1250px) {
@@ -84,7 +86,7 @@
     display: flex;
     align-items: center;
     font-size: 30px;
-    color: #CB8C1D;//firebrick;
+    color: $letters-color;
 
     @media(max-width: 500px) {
       font-size: 25px;
@@ -101,7 +103,7 @@
     font-size: 20px;
 
     div > a {
-      color: #F2EFE4;//white;
+      color: $light-main-color;
       text-decoration: none;
     }
 
@@ -110,7 +112,7 @@
     }
   }
   .burger {
-    color: #F2EFE4;//white;
+    color: $light-main-color;
 
     @media(min-width: 1001px) {
       display: none;
@@ -127,7 +129,7 @@
       }
   }
   #burger:checked ~ .top-menu-tabs {
-    background-color: #4C3327;
+    background-color: $dark-main-color;
     position: fixed;
     top: 0;
     right: 0;
@@ -144,7 +146,7 @@
           padding: 20px;
       }
       a {
-          color: #F2EFE4;
+          color: $light-main-color;
       }
   }
   .fon {
@@ -192,7 +194,7 @@
       z-index: 1;
       font-size: 30px;
       padding: 20px;
-      color: #F2EFE4;//white;
+      color: $light-main-color;
       margin-left: 30px;
     }
 

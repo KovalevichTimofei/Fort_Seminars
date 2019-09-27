@@ -5,7 +5,6 @@
         <div class="divider"></div>
         <div class="info">
             <div>Роман: <span>+375 (33)</span> 351-08-09</div>
-            <div>Максим: <span>+375 (29)</span> 808-27-66</div>
         </div>
     </footer>
 </template>
@@ -20,13 +19,15 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+    @import "../assets/theme.scss";
+
     .contacts-part {
         padding: 50px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #4C3327;//#3E1229;
-        color: #F2EFE4;//white;
+        background-color: $dark-main-color;
+        color: $light-main-color;
         text-transform: uppercase;
         font-size: 30px;
 
@@ -59,7 +60,7 @@
         margin: 10px 0;
 
         span {
-            color: #CB8C1D;//firebrick;
+            color: $letters-color;
         }
     }
 </style>
