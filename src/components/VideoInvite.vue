@@ -1,5 +1,6 @@
 <template>
     <iframe
+            v-if="seminar.invite_link"
             id="invite"
             class="video"
             v-bind:src="seminar.invite_link"
