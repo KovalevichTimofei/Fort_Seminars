@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!loading" class="details-part" id="schedule">
+    <div class="details-part" id="schedule">
         <SectionTitle title="Детали" classname="light" class="title"/>
         <vue-event-calendar
                 class="calendar"

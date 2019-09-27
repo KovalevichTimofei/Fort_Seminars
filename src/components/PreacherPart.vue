@@ -38,7 +38,7 @@
 
         & > div {
             margin: 50px;
-            color: #4C3327;//#3E1229;
+            color: $dark-main-color;
             font-size: 30px;
 
             @media(max-width: 950px) {
@@ -96,7 +96,7 @@
 
         .divider {
             height: 3px;
-            background-color: #4C3327;//black;
+            background-color: $dark-main-color;
             width: 200px;
             margin: 0 20px;
         }

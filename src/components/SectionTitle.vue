@@ -38,7 +38,7 @@
         opacity: .1;
         position: absolute;
         z-index: 0;
-        color: $light-main-color;
+        color: $letters-color;
         top: 1rem;
         left: 50%;
         transform: translate(-50%, -50%);
