@@ -29,7 +29,7 @@
             title="Регистрация"
             anchor="#signup">
         </Button>
-        <img src="../assets/church_logo5.jpg">
+        <img src="../assets/church_logo.jpg">
       </div>
     </div>
   </div>
