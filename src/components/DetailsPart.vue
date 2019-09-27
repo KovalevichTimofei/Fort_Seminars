@@ -22,19 +22,6 @@
   export default {
     name: "DetailsPart",
     components: { SectionTitle },
-    data() {
-      return {
-        demoEvents: [{
-          date: '2019/08/08',
-          title: 'Часть 1',
-        }, {
-          date: '2019/08/15',
-          title: 'Часть 2',
-          desc: 'Часть 2 семинара "Душепопечение, как это работает?"',
-        }],
-        monthNumber: new Date().getMonth() + 1,
-      };
-    },
     methods: {
       handleMonthChanged(data) {
         this.monthNumber = +data.split('.')[0];
@@ -58,8 +45,8 @@
             const date = new Date(el.date);
             return {
               date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() + 1}`,
-              title: `Часть ${el.part_numb}`,
-              desc: el.info,
+              title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
+              desc:  el.part_numb ? el.info : '',
             }
           });
         },
