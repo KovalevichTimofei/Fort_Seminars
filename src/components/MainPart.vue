@@ -24,7 +24,11 @@
           <div class="seminar-title">"{{seminar.title}}"</div>
           <div class="date">{{seminar.period}}</div>
         </div>
-        <btn class="signup" title="Регистрация"></btn>
+        <Button
+            class="signup"
+            title="Регистрация"
+            anchor="#signup">
+        </Button>
         <img src="../assets/church_logo5.jpg">
       </div>
     </div>
@@ -33,7 +37,7 @@
 </template>
 
 <script>
-  import btn from './Button';
+  import Button from './Button';
   import 'font-awesome/css/font-awesome.min.css';
   import { mapState } from 'vuex';
 
@@ -43,7 +47,7 @@
       msg: String
     },
     components: {
-      btn
+      Button
     },
     computed: mapState({
       seminar: state => state.seminars.seminar,
