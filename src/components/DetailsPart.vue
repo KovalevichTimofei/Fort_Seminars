@@ -44,7 +44,7 @@
           return state.lessons.lessons.map(el => {
             const date = new Date(el.date);
             return {
-              date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() + 1}`,
+              date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
               title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
               desc:  el.part_numb ? el.info : '',
             }
