@@ -58,13 +58,13 @@
         }
     }
     .dark-title, .dark-subtitle {
-        color: $dark-main-color;
+        color: $dark-letters-color;
     }
     .light-title {
         color: $letters-color;
     }
     .light-subtitle {
-        color: $light-main-color;
+        color: $dark-letters-color;
     }
 
 </style>

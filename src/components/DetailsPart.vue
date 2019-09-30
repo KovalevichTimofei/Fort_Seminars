@@ -18,10 +18,15 @@
 
   import { mapState, mapActions } from 'vuex';
 
-  Vue.use(vueEventCalendar, {locale: 'ru'});
+  Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353', });
   export default {
     name: "DetailsPart",
     components: { SectionTitle },
+    data: function() {
+          return {
+          monthNumber: 0,
+        }
+    },
     methods: {
       handleMonthChanged(data) {
         this.monthNumber = +data.split('.')[0];
@@ -72,7 +77,7 @@
         flex-direction: column;
         align-items: center;
         background-color: $dark-main-color;
-        color: $light-main-color;
+        color: $dark-letters-color;
         text-transform: uppercase;
         font-size: 30px;
 
@@ -99,8 +104,11 @@
             //font-family: Avenir,Helvetica,Arial,sans-serif;
             font-size: 15px;
         }
+        .events-wrapper {
+            background-color: $light-letters-color;
+        }
         .title {
-            color: $dark-main-color;
+            color: $dark-letters-color;
         }
         @media(max-width: 1250px) {
             .cal-wrapper, .events-wrapper {
@@ -121,12 +129,3 @@
         }
     }
 </style>
-
-
-
-
-
-
-
-
-

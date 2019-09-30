@@ -4,9 +4,9 @@
         <div class="preacher-card-container">
             <img v-bind:src="preacher.photo_url" alt="Портрет проповедника">
             <div class="info-container">
-                <div class="pritcher-ifo">{{preacher. ifo}}</div>
+                <div class="preacher-ifo">{{preacher. ifo}}</div>
                 <div class="divider"></div>
-                <div class="pritcher-description">{{preacher. info}}</div>
+                <div class="preacher-description">{{preacher. info}}</div>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
 
         & > div {
             margin: 50px;
-            color: $dark-main-color;
+            color: $dark-letters-color;//$light-letters-color;
             font-size: 30px;
 
             @media(max-width: 950px) {
@@ -96,7 +96,7 @@
 
         .divider {
             height: 3px;
-            background-color: $dark-main-color;
+            background-color: $light-letters-color;
             width: 200px;
             margin: 0 20px;
         }

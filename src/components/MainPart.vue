@@ -27,7 +27,9 @@
         <Button
             class="signup"
             title="Регистрация"
-            anchor="#signup">
+            anchor="#signup"
+            dark="true"
+        >
         </Button>
         <img src="../assets/church_logo.jpg">
       </div>
@@ -107,7 +109,7 @@
     font-size: 20px;
 
     div > a {
-      color: $light-main-color;
+      color: $dark-letters-color;
       text-decoration: none;
     }
 
@@ -116,7 +118,7 @@
     }
   }
   .burger {
-    color: $light-main-color;
+    color: $dark-letters-color;
 
     @media(min-width: 1001px) {
       display: none;
@@ -150,7 +152,7 @@
           padding: 20px;
       }
       a {
-          color: $light-main-color;
+          color: $dark-letters-color;
       }
   }
   .fon {
@@ -193,12 +195,16 @@
       min-height: 350px;
     }
 
+    .seminar-title {
+      color: $letters-color;
+    }
+
     div > div, .signup {
       position: relative;
       z-index: 1;
       font-size: 30px;
       padding: 20px;
-      color: $light-main-color;
+      color: $dark-letters-color;
       margin-left: 30px;
     }
 

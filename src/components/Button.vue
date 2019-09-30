@@ -34,7 +34,7 @@
 
         a {
             text-decoration: none;
-            color: $light-main-color;
+            color: $dark-letters-color;
         }
     }
     .btn:hover {

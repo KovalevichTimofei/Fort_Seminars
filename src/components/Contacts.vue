@@ -27,7 +27,7 @@
         flex-direction: column;
         align-items: center;
         background-color: $dark-main-color;
-        color: $light-main-color;
+        color: $dark-letters-color;
         text-transform: uppercase;
         font-size: 30px;
 
