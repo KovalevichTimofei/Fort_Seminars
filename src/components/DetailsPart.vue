@@ -24,7 +24,7 @@
     components: { SectionTitle },
     data: function() {
           return {
-          monthNumber: 0,
+          monthNumber: (new Date().getMonth() + 1),
         }
     },
     methods: {
