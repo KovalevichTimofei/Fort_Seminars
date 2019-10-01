@@ -70,16 +70,28 @@
         display: flex;
 
         img {
+            max-width: 200px;
+            min-width: 200px;
             width: 200px;
+            max-height: 200px;
+            min-height: 200px;
             height: 200px;
             border-radius: 100px;
 
             @media(max-width: 720px) {
+                max-width: 150px;
+                min-width: 150px;
                 width: 150px;
+                max-height: 150px;
+                min-height: 150px;
                 height: 150px;
             }
             @media(max-width: 450px) {
+                max-width: 100px;
+                min-width: 100px;
                 width: 100px;
+                max-height: 100px;
+                min-height: 100px;
                 height: 100px;
                 margin-top: 30px;
             }
