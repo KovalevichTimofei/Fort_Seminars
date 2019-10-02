@@ -24,6 +24,23 @@
             >
             </Button>
         </div>
+        <modal
+           name="success-message"
+           :adaptive="true"
+           width="50%" height="30%">
+            <div class="modal">
+                Регистрация прошла успешно. Ждём вас на семинаре!
+            </div>
+        </modal>
+        <modal
+            name="email-exists-message"
+            :adaptive="true"
+            width="50%" height="30%">
+            <div class="modal">
+                Человек с таким email уже зарегистрирован.
+                Введите другой адрес.
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -55,6 +72,12 @@
               surname: this.surname,
               email: this.email,
               seminar: this.seminar,
+            }).then((data) => {
+              console.log(`Answer ${JSON.stringify(data)}`);
+              if(data.result === 'success')
+                this.$modal.show('success-message');
+              else if(data.result === 'email exists')
+                this.$modal.show('email-exists-message');
             });
           },
           ...mapActions('users', ['registerUser']),
@@ -84,6 +107,19 @@
             @media(max-width: 720px) {
                 margin-bottom: 30px;
             }
+        }
+
+        .modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 80%;
+            height: 60%;
+            text-transform: none;
+            font-size: 20px;
+            color: $letters-color;
+            padding: 10%;
         }
 
         @media(max-width: 720px) {

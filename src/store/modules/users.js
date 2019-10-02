@@ -14,7 +14,11 @@ const actions = {
   registerUser ({ commit }, userInfo) {
     commit(REGISTER_USER_START);
     return api.users.registerUser(userInfo)
-      .then(data => commit(REGISTER_USER_SUCCESS, data ))
+      .then(data => {
+        commit(REGISTER_USER_SUCCESS, data );
+        console.log(data);
+        return data;
+      })
       .catch(() => commit( REGISTER_USER_FAIL ));
   },
 };
