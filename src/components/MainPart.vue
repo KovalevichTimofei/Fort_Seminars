@@ -41,7 +41,7 @@
 <script>
   import Button from './Button';
   import 'font-awesome/css/font-awesome.min.css';
-  import { mapState } from 'vuex';
+  import { mapState, mapActions } from 'vuex';
 
   export default {
     name: 'MainPart',
@@ -54,7 +54,13 @@
     computed: mapState({
       seminar: state => state.seminars.seminar,
       loading: state => state.seminars.loading,
-    })
+    }),
+    methods: mapActions([
+      'seminars/fetchCurrentSeminar',
+    ]),
+    async created() {
+      await this.$store.dispatch('seminars/fetchCurrentSeminar');
+    }
   }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-
+    <div>Listeners List</div>
 </template>
 
 <script>

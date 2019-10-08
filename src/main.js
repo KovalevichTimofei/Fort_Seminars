@@ -10,7 +10,34 @@ Vue.component('CircleSpinner', CircleSpinner);
 Vue.use(VModal);
 Vue.use(VueRouter);
 
+import ClientMain from "@/components/ClientMain";
+
+import SignIn from "@/components/SignIn";
+import AdminMain from "@/components/AdminMain";
+import SeminarsList from "@/components/SeminarsList";
+import ListenersList from "@/components/ListenersList";
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/signup', component: ClientMain },
+    { path: '/signin', component: SignIn },
+    { path: '/admin', component: AdminMain,
+      children: [
+        {
+          path: 'seminars',
+          component: SeminarsList,
+        },
+        {
+          path: 'listeners',
+          component: ListenersList,
+        }
+      ]}
+  ]
+});
+
 new Vue({
   store,
+  router,
   render: h => h(App),
 }).$mount('#app');

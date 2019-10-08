@@ -1,5 +1,5 @@
 <template>
-
+    <div>Seminars List</div>
 </template>
 
 <script>
