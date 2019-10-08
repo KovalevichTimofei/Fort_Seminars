@@ -25,6 +25,14 @@
             </Button>
         </div>
         <modal
+                name="type-all-message"
+                :adaptive="true"
+                width="50%" height="30%">
+            <div class="modal">
+                Заполните все поля!
+            </div>
+        </modal>
+        <modal
            name="success-message"
            :adaptive="true"
            width="50%" height="30%">
@@ -67,6 +75,10 @@
         },
         methods: {
           handleRegister() {
+            if(this.name === '' || this.email === '' || this.surname === '') {
+              this.$modal.show('type-all-message');
+              return;
+            }
             this.$store.dispatch('users/registerUser', {
               name: this.name,
               surname: this.surname,
