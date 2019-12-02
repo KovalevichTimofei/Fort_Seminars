@@ -5,26 +5,32 @@ import store from './store';
 import { CircleSpinner } from 'vue-spinners';
 import VModal from 'vue-js-modal'
 
-import {
+import VueMaterial from "vue-material";
+
+/*import {
   MdDrawer,
-  MdToolbar,
+  MdButton,
   MdContent,
+  MdToolbar,
   MdIcon,
   MdApp,
-  MdList,
-} from 'vue-material/dist/components';
+  MdTable,
+} from 'vue-material/dist/components';*/
 
 Vue.config.productionTip = false;
 Vue.component('CircleSpinner', CircleSpinner);
 Vue.use(VModal);
 Vue.use(VueRouter);
 
-Vue.use(MdDrawer);
-Vue.use(MdToolbar);
+Vue.use(VueMaterial);
+
+/*Vue.use(MdDrawer);
+Vue.use(MdButton);
 Vue.use(MdContent);
 Vue.use(MdIcon);
 Vue.use(MdApp);
-Vue.use(MdList);
+Vue.use(MdToolbar);
+Vue.use(MdTable);*/
 
 import ClientMain from "@/components/ClientMain";
 

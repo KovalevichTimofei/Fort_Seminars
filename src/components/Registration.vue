@@ -79,7 +79,7 @@
               this.$modal.show('type-all-message');
               return;
             }
-            this.$store.dispatch('users/registerUser', {
+            this.registerUser({
               name: this.name,
               surname: this.surname,
               email: this.email,
@@ -92,7 +92,9 @@
                 this.$modal.show('email-exists-message');
             });
           },
-          ...mapActions('users', ['registerUser']),
+          ...mapActions('users', [
+            'registerUser',
+          ]),
         },
         computed: {
           ...mapState({

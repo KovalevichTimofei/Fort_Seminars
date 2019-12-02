@@ -36,7 +36,6 @@ const mutations = {
     state.loadingFailed = true;
   },
   reWriteLessons(state) {
-    console.log('rewrite');
     state.lessons = [...state.lessons];
   }
 };

@@ -30,18 +30,19 @@
     methods: {
       handleMonthChanged(data) {
         this.monthNumber = +data.split('.')[0];
-        this.$store.dispatch('lessons/fetchLessonsByMonth', this.monthNumber);
+        this.fetchLessonsByMonth(this.monthNumber);
         document.getElementsByClassName('calendar')[0].addEventListener('click', this.func);
         },
       crutchForCalendar(event) {
         if (event.target.className !== 'date-num' ||
           !(~event.target.parentNode.className.indexOf('event'))) {
-          this.$store.dispatch('lessons/reWriteLessons');
+          this.reWriteLessons();
         }
       },
       ...mapActions('lessons', [
-        'fetchLessonsByMonth', 'reWriteLessons'
-        ]),
+        'fetchLessonsByMonth',
+        'reWriteLessons',
+      ]),
     },
     computed: {
       ...mapState({
@@ -58,8 +59,8 @@
         loading: state => state.lessons.loading,
       })
     },
-    async created() {
-      await this.$store.dispatch('lessons/fetchLessonsByMonth', this.monthNumber);
+    created() {
+      this.fetchLessonsByMonth(this.monthNumber);
       document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
     },
     updated() {

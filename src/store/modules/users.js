@@ -16,7 +16,6 @@ const actions = {
     return api.users.registerUser(userInfo)
       .then(data => {
         commit(REGISTER_USER_SUCCESS, data );
-        console.log(data);
         return data;
       })
       .catch(() => commit( REGISTER_USER_FAIL ));

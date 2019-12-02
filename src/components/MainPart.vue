@@ -55,11 +55,13 @@
       seminar: state => state.seminars.seminar,
       loading: state => state.seminars.loading,
     }),
-    methods: mapActions([
-      'seminars/fetchCurrentSeminar',
-    ]),
-    async created() {
-      await this.$store.dispatch('seminars/fetchCurrentSeminar');
+    methods: {
+      ...mapActions('seminars', [
+        'fetchCurrentSeminar',
+      ]),
+    },
+    created() {
+      this.fetchCurrentSeminar();
     }
   }
 </script>

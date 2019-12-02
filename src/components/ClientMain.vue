@@ -32,13 +32,17 @@
         computed: mapState({
           seminar: state => state.seminars.seminar,
         }),
-        methods: mapActions([
-          'seminars/fetchCurrentSeminar',
-          'preachers/fetchCurrentPreacher',
-        ]),
-        async beforeCreate() {
-          await this.$store.dispatch('seminars/fetchCurrentSeminar');
-          await this.$store.dispatch('preachers/fetchCurrentPreacher', this.seminar.preacher_id);
+        methods: {
+          ...mapActions('seminars', [
+            'fetchCurrentSeminar',
+          ]),
+          ...mapActions('preachers', [
+            'fetchCurrentPreacher',
+          ]),
+        },
+        created() {
+          this.fetchCurrentSeminar();
+          this.fetchCurrentPreacher(this.seminar.preacher_id);
         }
       }
 </script>
