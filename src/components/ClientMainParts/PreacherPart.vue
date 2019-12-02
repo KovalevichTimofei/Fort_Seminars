@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!loading" id="details" class="preacher-part">
+    <div id="details" class="preacher-part">
         <SectionTitle title="Проповедник" classname="dark"/>
         <div class="preacher-card-container">
             <img v-bind:src="preacher.photo_url" alt="Портрет проповедника">
@@ -10,21 +10,17 @@
             </div>
         </div>
     </div>
-    <div v-else><CircleSpinner /></div>
 </template>
 
 <script>
-  import SectionTitle from "@/components/SectionTitle";
-  import { mapState } from 'vuex';
+import { mapState } from 'vuex';
+import SectionTitle from '@/components/SectionTitle';
 
-  export default {
-    name: "PreacherPart",
-    components: { SectionTitle },
-    computed: mapState({
-      loading: state => state.preachers.loading,
-      preacher: state => state.preachers.preacher,
-    }),
-  }
+export default {
+  name: 'PreacherPart',
+  components: { SectionTitle },
+  computed: mapState('preachers', ['preacher']),
+};
 </script>
 
 <style lang="scss" type="text/scss" scoped>

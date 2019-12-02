@@ -11,14 +11,12 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
-  export default {
-    name: "VideoInvite",
-    computed: mapState({
-      seminar: state => state.seminars.seminar,
-    }),
-  }
+export default {
+  name: 'VideoInvite',
+  computed: mapState('seminar', ['seminar']),
+};
 </script>
 
 <style lang="scss" type="text/scss" scoped>
