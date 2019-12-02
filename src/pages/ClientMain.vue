@@ -5,17 +5,19 @@
         <DetailsPart/>
         <VideoInvite/>
         <Registration/>
+        <Map/>
         <Contacts/>
     </div>
 </template>
 
 <script>
-    import MainPart from '@/components/MainPart';
-    import DetailsPart from "@/components/DetailsPart";
-    import PreacherPart from '@/components/PreacherPart';
-    import VideoInvite from "@/components/VideoInvite";
+    import MainPart from '@/components/ClientMainParts/MainPart';
+    import DetailsPart from "@/components/ClientMainParts/DetailsPart";
+    import PreacherPart from '@/components/ClientMainParts/PreacherPart';
+    import VideoInvite from "@/components/ClientMainParts/VideoInvite";
     import Registration from "@/components/Registration";
-    import Contacts from "@/components/Contacts";
+    import Map from "@/components/ClientMainParts/Map";
+    import Contacts from "@/components/ClientMainParts/Contacts";
 
     import { mapState, mapActions } from 'vuex';
 
@@ -27,6 +29,7 @@
           PreacherPart,
           VideoInvite,
           Registration,
+          Map,
           Contacts,
         },
         computed: mapState({

@@ -1,10 +1,11 @@
 <template>
-    <div>Seminars List</div>
+    <div id="place">
+    </div>
 </template>
 
 <script>
   export default {
-    name: "SeminarsList"
+    name: "Map"
   }
 </script>
 

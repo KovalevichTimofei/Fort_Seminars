@@ -70,7 +70,7 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
-    @import "../assets/theme.scss";
+    @import "../../assets/theme";
 
     .details-part {
         padding: 50px 0;
@@ -96,7 +96,7 @@
 </style>
 
 <style lang="scss" type="text/scss">
-    @import "../assets/theme.scss";
+    @import "../../assets/theme";
 
     .calendar {
         .cal-wrapper .cal-header {

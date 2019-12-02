@@ -15,6 +15,7 @@
           <div><a href="#details">Детали</a></div>
           <div><a href="#invite">Приглашение</a></div>
           <div><a href="#signup">Регистрация</a></div>
+          <div><a href="#place">Место</a></div>
           <div><a href="#contacts">Контакты</a></div>
         </div>
       </div>
@@ -31,7 +32,7 @@
             dark="true"
         >
         </Button>
-        <img src="../assets/church_logo.jpg">
+        <img src="../../assets/church_logo.jpg">
       </div>
     </div>
   </div>
@@ -39,7 +40,7 @@
 </template>
 
 <script>
-  import Button from './Button';
+  import Button from '../Button';
   import 'font-awesome/css/font-awesome.min.css';
   import { mapState, mapActions } from 'vuex';
 
@@ -68,7 +69,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" type="text/scss" scoped>
-  @import "../assets/theme.scss";
+  @import "../../assets/theme";
 
   .main-part {
     width: 80%;
@@ -81,7 +82,7 @@
           padding: 5% 6% 10%;
           width: 88%;
       }
-      @media(max-width: 1000px) {
+      @media(max-width: 1085px) {
           padding: 5% 5% 10%;
           width: 90%;
       }
@@ -92,7 +93,7 @@
     justify-content: space-between;
     padding-bottom: 50px;
 
-    @media(max-width: 1000px) {
+    @media(max-width: 1085px) {
       display: -webkit-box;
     }
   }
@@ -128,14 +129,14 @@
   .burger {
     color: $dark-letters-color;
 
-    @media(min-width: 1001px) {
+    @media(min-width: 1086px) {
       display: none;
     }
   }
   .top-menu-tabs {
       transition: 400ms;
   }
-  @media(max-width: 1000px) {
+  @media(max-width: 1085px) {
       #burger:not(:checked) ~ .top-menu-tabs {
           position: fixed;
           top: -100px;

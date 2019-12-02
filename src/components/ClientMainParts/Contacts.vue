@@ -19,7 +19,7 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
-    @import "../assets/theme.scss";
+    @import "../../assets/theme";
 
     .contacts-part {
         padding: 50px 0;

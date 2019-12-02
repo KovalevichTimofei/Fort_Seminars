@@ -32,29 +32,12 @@ Vue.use(MdApp);
 Vue.use(MdToolbar);
 Vue.use(MdTable);*/
 
-import ClientMain from "@/components/ClientMain";
-
-import SignIn from "@/components/SignIn";
-import AdminMain from "@/components/AdminMain";
-import SeminarsList from "@/components/SeminarsList";
-import ListenersList from "@/components/ListenersList";
+import ClientMain from "@/pages/ClientMain";
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: ClientMain },
-    { path: '/signin', component: SignIn },
-    { path: '/admin', component: AdminMain,
-      children: [
-        {
-          path: 'seminars',
-          component: SeminarsList,
-        },
-        {
-          path: 'listeners',
-          component: ListenersList,
-        }
-      ]}
   ]
 });
 
