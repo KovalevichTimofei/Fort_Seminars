@@ -42,7 +42,7 @@ import ListenersList from "@/components/ListenersList";
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/signup', component: ClientMain },
+    { path: '/', component: ClientMain },
     { path: '/signin', component: SignIn },
     { path: '/admin', component: AdminMain,
       children: [

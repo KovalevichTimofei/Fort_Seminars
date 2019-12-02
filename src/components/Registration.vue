@@ -85,7 +85,6 @@
               email: this.email,
               seminar: this.seminar,
             }).then((data) => {
-              console.log(`Answer ${JSON.stringify(data)}`);
               if(data.result === 'success')
                 this.$modal.show('success-message');
               else if(data.result === 'email exists')
