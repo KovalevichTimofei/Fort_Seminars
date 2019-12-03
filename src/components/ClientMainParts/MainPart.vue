@@ -1,5 +1,5 @@
 <template>
-  <div class="main-part">
+  <div v-if="!loading" class="main-part">
     <div class="main-container">
       <div class="top-menu">
         <div class="main-logo">Церковь Фортечная</div>
@@ -36,23 +36,35 @@
       </div>
     </div>
   </div>
+  <div v-else><CircleSpinner /></div>
 </template>
 
 <script>
-import 'font-awesome/css/font-awesome.min.css';
-import { mapState } from 'vuex';
-import Button from '../Button';
+  import Button from '../Button';
+  import 'font-awesome/css/font-awesome.min.css';
+  import { mapState, mapActions } from 'vuex';
 
-export default {
-  name: 'MainPart',
-  props: {
-    msg: String,
-  },
-  components: {
-    Button,
-  },
-  computed: mapState('seminars', ['seminar']),
-};
+  export default {
+    name: 'MainPart',
+    props: {
+      msg: String
+    },
+    components: {
+      Button
+    },
+    computed: mapState({
+      seminar: state => state.seminars.seminar,
+      loading: state => state.seminars.loading,
+    }),
+    methods: {
+      ...mapActions('seminars', [
+        'fetchCurrentSeminar',
+      ]),
+    },
+    created() {
+      this.fetchCurrentSeminar();
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

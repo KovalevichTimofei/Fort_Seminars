@@ -1,3 +1,5 @@
+import store from '../store';
+
 export default class ApiClient {
   constructor({ prefix = 'api' } = {}) {
     this.prefix = prefix;

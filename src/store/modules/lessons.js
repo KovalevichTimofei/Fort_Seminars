@@ -1,6 +1,6 @@
 import api from '../../apiSingleton';
 
-const stateObj = {
+const state = {
   loading: false,
   loadingFailed: false,
   lessons: [],
@@ -11,38 +11,38 @@ export const FETCH_LESSONS_SUCCESS = 'fetchLessonsSuccess';
 export const FETCH_LESSONS_FAIL = 'fetchLessonsFail';
 
 const actions = {
-  fetchLessonsByMonth({ commit }, monthNumber) {
+  fetchLessonsByMonth ({ commit }, monthNumber) {
     commit(FETCH_LESSONS_START);
     return api.lessons.getLessonsByMonth(monthNumber)
-      .then((data) => commit(FETCH_LESSONS_SUCCESS, data))
-      .catch(() => commit(FETCH_LESSONS_FAIL));
+      .then(data => commit(FETCH_LESSONS_SUCCESS, data ))
+      .catch(() => commit( FETCH_LESSONS_FAIL ));
   },
   reWriteLessons({ commit }) {
-    commit('reWriteLessons');
-  },
+    commit( 'reWriteLessons' );
+  }
 };
 
 const mutations = {
-  fetchLessonsStart(state) {
+  fetchLessonsStart (state) {
     state.loading = true;
     state.loadingFailed = false;
   },
-  fetchLessonsSuccess(state, data) {
+  fetchLessonsSuccess (state, data) {
     state.lessons = data;
     state.loading = false;
   },
-  fetchLessonsFail(state) {
+  fetchLessonsFail (state) {
     state.loading = false;
     state.loadingFailed = true;
   },
   reWriteLessons(state) {
     state.lessons = [...state.lessons];
-  },
+  }
 };
 
 export default {
   namespaced: true,
-  state: stateObj,
+  state,
   actions,
-  mutations,
-};
+  mutations
+}

@@ -8,15 +8,15 @@
 </template>
 
 <script>
-export default {
-  name: 'Button',
-  props: ['title', 'anchor'],
-  methods: {
-    submit() {
-      this.$emit('submit');
-    },
-  },
-};
+  export default {
+    name: "Button",
+    props: ['title', 'anchor', ],
+    methods:{
+      submit(){
+       this.$emit('submit');
+      }
+    }
+  }
 </script>
 
 <style lang="scss" type="text/scss" scoped>

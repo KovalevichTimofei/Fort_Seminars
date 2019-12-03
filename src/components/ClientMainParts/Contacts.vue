@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
+  import SectionTitle from "@/components/SectionTitle";
 
-export default {
-  name: 'Contacts',
-  components: { SectionTitle },
-};
+  export default {
+    name: "Contacts",
+    components: { SectionTitle },
+  }
 </script>
 
 <style lang="scss" type="text/scss" scoped>

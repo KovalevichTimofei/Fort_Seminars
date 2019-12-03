@@ -11,8 +11,6 @@
   "dependencies": {
     "@storybook/addon-notes": "^5.1.11",
     "core-js": "^2.6.5",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
     "font-awesome": "^4.7.0",
     "history": "^4.10.1",
     "vue": "^2.6.10",
