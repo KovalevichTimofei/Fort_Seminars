@@ -10,7 +10,10 @@
 <script>
 export default {
   name: 'Button',
-  props: ['title', 'anchor'],
+  props: {
+    title: String,
+    anchor: String,
+  },
   methods: {
     submit() {
       this.$emit('submit');

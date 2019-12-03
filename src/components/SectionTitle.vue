@@ -8,7 +8,10 @@
 <script>
 export default {
   name: 'SectionTitle',
-  props: ['title', 'classname'],
+  props: {
+    title: String,
+    classname: String,
+  },
 };
 </script>
 
