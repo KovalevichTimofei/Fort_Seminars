@@ -4,7 +4,7 @@
         <div class="subtitle">По всем вопросам</div>
         <div class="divider"></div>
         <div class="info">
-            <div>Роман: <span>+375 (33)</span> 351-08-09</div>
+            <div>Роман: <a href="tel:+375333510809"><span>+375 (33)</span> 351-08-09</a></div>
         </div>
     </footer>
 </template>
@@ -58,6 +58,11 @@ export default {
     .info {
         text-align: center;
         margin: 10px 0;
+
+        a {
+            text-decoration: none;
+            color: $dark-letters-color;
+        }
 
         span {
             color: $letters-color;
