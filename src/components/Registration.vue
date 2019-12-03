@@ -53,56 +53,54 @@
 </template>
 
 <script>
-    import InputTextField from "@/components/InputTextField";
-    import Button from "@/components/Button";
-    import SectionTitle from "@/components/SectionTitle";
+import { mapState, mapActions } from 'vuex';
+import InputTextField from '@/components/InputTextField';
+import Button from '@/components/Button';
+import SectionTitle from '@/components/SectionTitle';
 
-    import { mapState, mapActions } from 'vuex';
 
-      export default {
-        name: "Registration",
-        components: {
-          InputTextField,
-          Button,
-          SectionTitle,
-        },
-        data: function () {
-          return {
-            name: '',
-            surname: '',
-            email: '',
-          }
-        },
-        methods: {
-          handleRegister() {
-            if(this.name === '' || this.email === '' || this.surname === '') {
-              this.$modal.show('type-all-message');
-              return;
-            }
-            this.registerUser({
-              name: this.name,
-              surname: this.surname,
-              email: this.email,
-              seminar: this.seminar,
-            }).then((data) => {
-              if(data.result === 'success')
-                this.$modal.show('success-message');
-              else if(data.result === 'email exists')
-                this.$modal.show('email-exists-message');
-            });
-          },
-          ...mapActions('users', [
-            'registerUser',
-          ]),
-        },
-        computed: {
-          ...mapState({
-            loading: state => state.users.loading,
-            success: state => state.users.success,
-            seminar: state => state.seminars.seminar,
-          })
-        },
+export default {
+  name: 'Registration',
+  components: {
+    InputTextField,
+    Button,
+    SectionTitle,
+  },
+  data() {
+    return {
+      name: '',
+      surname: '',
+      email: '',
+    };
+  },
+  methods: {
+    handleRegister() {
+      if (this.name === '' || this.email === '' || this.surname === '') {
+        this.$modal.show('type-all-message');
+        return;
       }
+      this.registerUser({
+        name: this.name,
+        surname: this.surname,
+        email: this.email,
+        seminar: this.seminar,
+      }).then((data) => {
+        if (data.result === 'success') this.$modal.show('success-message');
+        else if (data.result === 'email exists') this.$modal.show('email-exists-message');
+      });
+    },
+    ...mapActions('users', [
+      'registerUser',
+    ]),
+  },
+  computed: {
+    ...mapState({
+      loading: (state) => state.users.loading,
+      success: (state) => state.users.success,
+      seminar: (state) => state.seminars.seminar,
+    }),
+  },
+};
 </script>
 
 <style lang="scss" type="text/scss" scoped>

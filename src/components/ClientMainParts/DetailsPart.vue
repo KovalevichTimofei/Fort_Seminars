@@ -11,62 +11,55 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  import 'vue-event-calendar/dist/style.css';
-  import vueEventCalendar from 'vue-event-calendar';
-  import SectionTitle from "@/components/SectionTitle";
+import Vue from 'vue';
+import 'vue-event-calendar/dist/style.css';
+import vueEventCalendar from 'vue-event-calendar';
+import { mapState, mapActions } from 'vuex';
+import SectionTitle from '@/components/SectionTitle';
 
-  import { mapState, mapActions } from 'vuex';
 
-  Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353', });
-  export default {
-    name: "DetailsPart",
-    components: { SectionTitle },
-    data: function() {
-          return {
-          monthNumber: (new Date().getMonth() + 1),
-        }
-    },
-    methods: {
-      handleMonthChanged(data) {
-        this.monthNumber = +data.split('.')[0];
-        this.fetchLessonsByMonth(this.monthNumber);
-        document.getElementsByClassName('calendar')[0].addEventListener('click', this.func);
-        },
-      crutchForCalendar(event) {
-        if (event.target.className !== 'date-num' ||
-          !(~event.target.parentNode.className.indexOf('event'))) {
-          this.reWriteLessons();
-        }
-      },
-      ...mapActions('lessons', [
-        'fetchLessonsByMonth',
-        'reWriteLessons',
-      ]),
-    },
-    computed: {
-      ...mapState({
-        lessons: state => {
-          return state.lessons.lessons.map(el => {
-            const date = new Date(el.date);
-            return {
-              date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
-              title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
-              desc:  el.part_numb ? el.info : '',
-            }
-          });
-        },
-        loading: state => state.lessons.loading,
-      })
-    },
-    created() {
+Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353' });
+export default {
+  name: 'DetailsPart',
+  components: { SectionTitle },
+  data() {
+    return {
+      monthNumber: (new Date().getMonth() + 1),
+    };
+  },
+  computed: {
+    ...mapState('lessons', {
+      lessons: (state) => state.lessons.map((el) => {
+        const date = new Date(el.date);
+        return {
+          date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
+          title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
+          desc: el.part_numb ? el.info : '',
+        };
+      }),
+    }),
+  },
+  methods: {
+    handleMonthChanged(data) {
+      this.monthNumber = +data.split('.')[0];
       this.fetchLessonsByMonth(this.monthNumber);
-      document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
+      document.getElementsByClassName('calendar')[0].addEventListener('click', this.func);
     },
-    updated() {
-      document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
-    }
-  }
+    crutchForCalendar(event) {
+      if (event.target.className !== 'date-num'
+          || !(event.target.parentNode.className.indexOf('event') >= 0)) {
+        this.reWriteLessons();
+      }
+    },
+    ...mapActions('lessons', ['reWriteLessons']),
+  },
+  mounted() {
+    document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
+  },
+  updated() {
+    document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
+  },
+};
 </script>
 
 <style lang="scss" type="text/scss" scoped>

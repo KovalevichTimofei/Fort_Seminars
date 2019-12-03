@@ -1,6 +1,6 @@
 import api from '../../apiSingleton';
 
-const state = {
+const stateObj = {
   loading: false,
   loadingFailed: false,
   seminars: [],
@@ -12,24 +12,24 @@ export const FETCH_SEMINAR_SUCCESS = 'fetchSeminarSuccess';
 export const FETCH_SEMINAR_FAIL = 'fetchSeminarFail';
 
 const actions = {
-  fetchCurrentSeminar ({ commit }) {
+  fetchCurrentSeminar({ commit }) {
     commit(FETCH_SEMINAR_START);
     return api.seminars.getCurrentSeminar()
-      .then(data => commit(FETCH_SEMINAR_SUCCESS, data ))
-      .catch(() => commit( FETCH_SEMINAR_FAIL ));
+      .then((data) => commit(FETCH_SEMINAR_SUCCESS, data))
+      .catch(() => commit(FETCH_SEMINAR_FAIL));
   },
 };
 
 const mutations = {
-  fetchSeminarStart (state) {
+  fetchSeminarStart(state) {
     state.loading = true;
     state.loadingFailed = false;
   },
-  fetchSeminarSuccess (state, data) {
+  fetchSeminarSuccess(state, data) {
     state.seminar = data;
     state.loading = false;
   },
-  fetchSeminarFail (state) {
+  fetchSeminarFail(state) {
     state.loading = false;
     state.loadingFailed = true;
   },
@@ -37,7 +37,7 @@ const mutations = {
 
 export default {
   namespaced: true,
-  state,
+  state: stateObj,
   actions,
-  mutations
-}
+  mutations,
+};
