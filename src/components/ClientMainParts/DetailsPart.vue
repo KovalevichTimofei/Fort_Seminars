@@ -14,7 +14,7 @@
 import Vue from 'vue';
 import 'vue-event-calendar/dist/style.css';
 import vueEventCalendar from 'vue-event-calendar';
-import { mapState, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import SectionTitle from '@/components/SectionTitle';
 
 
@@ -28,16 +28,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('lessons', {
-      lessons: (state) => state.lessons.map((el) => {
-        const date = new Date(el.date);
-        return {
-          date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
-          title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
-          desc: el.part_numb ? el.info : '',
-        };
-      }),
-    }),
+    ...mapGetters('lessons', {lessons: 'lessonsForCurMonth'}),
   },
   methods: {
     handleMonthChanged(data) {
@@ -51,7 +42,7 @@ export default {
         this.reWriteLessons();
       }
     },
-    ...mapActions('lessons', ['reWriteLessons']),
+    ...mapActions('lessons', ['reWriteLessons', 'fetchLessonsByMonth']),
   },
   mounted() {
     document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);

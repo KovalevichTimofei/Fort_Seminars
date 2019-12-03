@@ -62,8 +62,8 @@ export default {
   },
   async created() {
     await this.fetchCurrentSeminar();
-    await this.fetchCurrentPreacher(this.seminar.preacher_id);
-    await this.fetchLessonsByMonth(this.monthNumber);
+    this.fetchCurrentPreacher(this.seminar.preacher_id);
+    this.fetchLessonsByMonth(this.monthNumber);
   },
 };
 </script>

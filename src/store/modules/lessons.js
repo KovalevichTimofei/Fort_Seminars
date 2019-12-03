@@ -6,6 +6,17 @@ const stateObj = {
   lessons: [],
 };
 
+const getters = {
+  lessonsForCurMonth: (state) => state.lessons.map((el) => {
+    const date = new Date(el.date);
+    return {
+      date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
+      title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
+      desc: el.part_numb ? el.info : '',
+    };
+  })
+};
+
 export const FETCH_LESSONS_START = 'fetchLessonsStart';
 export const FETCH_LESSONS_SUCCESS = 'fetchLessonsSuccess';
 export const FETCH_LESSONS_FAIL = 'fetchLessonsFail';
@@ -45,4 +56,5 @@ export default {
   state: stateObj,
   actions,
   mutations,
+  getters,
 };
