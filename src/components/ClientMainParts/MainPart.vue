@@ -13,7 +13,7 @@
         <div class="top-menu-tabs">
           <div><a href="#schedule">Расписание</a></div>
           <div><a href="#details">Детали</a></div>
-          <div><a href="#invite">Приглашение</a></div>
+          <div v-if="seminar.invite_link"><a href="#invite">Приглашение</a></div>
           <div><a href="#signup">Регистрация</a></div>
           <div><a href="#place">Место</a></div>
           <div><a href="#contacts">Контакты</a></div>
