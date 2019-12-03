@@ -49,6 +49,14 @@
                 Введите другой адрес.
             </div>
         </modal>
+        <modal
+            name="email-message"
+            :adaptive="true"
+            width="50%" height="30%">
+            <div class="modal">
+                В поле "Электронная почта" должен быть адрес электронной почты!
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -75,15 +83,24 @@ export default {
   },
   methods: {
     handleRegister() {
-      if (this.name === '' || this.email === '' || this.surname === '') {
+      const {
+        name, email, surname, seminar,
+      } = this;
+      const re = /.+@.+\..+/i;
+
+      if (name === '' || email === '' || surname === '') {
         this.$modal.show('type-all-message');
         return;
       }
+      if (!re.test(email)) {
+        this.$modal.show('email-message');
+        return;
+      }
       this.registerUser({
-        name: this.name,
-        surname: this.surname,
-        email: this.email,
-        seminar: this.seminar,
+        name,
+        surname,
+        email,
+        seminar,
       }).then((data) => {
         if (data.result === 'success') this.$modal.show('success-message');
         else if (data.result === 'email exists') this.$modal.show('email-exists-message');
