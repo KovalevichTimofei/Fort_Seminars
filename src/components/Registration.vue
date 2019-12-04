@@ -85,8 +85,11 @@ export default {
         email: this.email,
         seminar: this.seminar,
       }).then((data) => {
-        if (data.result === 'success') this.$modal.show('success-message');
-        else if (data.result === 'email exists') this.$modal.show('email-exists-message');
+        if (data.result === 'success') {
+          this.$modal.show('success-message');
+        } else if (data.result === 'email exists') {
+          this.$modal.show('email-exists-message');
+        }
       });
     },
     ...mapActions('users', [
