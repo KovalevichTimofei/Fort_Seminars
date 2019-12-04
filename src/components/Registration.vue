@@ -25,36 +25,11 @@
             </Button>
         </div>
         <modal
-                name="type-all-message"
-                :adaptive="true"
-                width="50%" height="30%">
-            <div class="modal">
-                Заполните все поля!
-            </div>
-        </modal>
-        <modal
-           name="success-message"
-           :adaptive="true"
-           width="50%" height="30%">
-            <div class="modal">
-                Регистрация прошла успешно. Ждём вас на семинаре!
-            </div>
-        </modal>
-        <modal
-            name="email-exists-message"
+            :name="modalName"
             :adaptive="true"
             width="50%" height="30%">
             <div class="modal">
-                Человек с таким email уже зарегистрирован.
-                Введите другой адрес.
-            </div>
-        </modal>
-        <modal
-            name="email-message"
-            :adaptive="true"
-            width="50%" height="30%">
-            <div class="modal">
-                В поле "Электронная почта" должен быть адрес электронной почты!
+                {{message}}
             </div>
         </modal>
     </div>
@@ -65,7 +40,6 @@ import { mapState, mapActions } from 'vuex';
 import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
-
 
 export default {
   name: 'Registration',
@@ -79,6 +53,8 @@ export default {
       name: '',
       surname: '',
       email: '',
+      modalName: '',
+      message: '',
     };
   },
   methods: {
@@ -86,14 +62,17 @@ export default {
       const {
         name, email, surname, seminar,
       } = this;
-      const re = /.+@.+\..+/i;
+      const emailRegPattern = /.+@.+\..+/i;
 
       if (name === '' || email === '' || surname === '') {
-        this.$modal.show('type-all-message');
+        this.showModal('type-all-message', 'Заполните все поля!');
         return;
       }
-      if (!re.test(email)) {
-        this.$modal.show('email-message');
+      if (!emailRegPattern.test(email)) {
+        this.showModal(
+          'email-message',
+          'В поле "Электронная почта" должен быть адрес электронной почты!',
+        );
         return;
       }
       this.registerUser({
@@ -102,9 +81,27 @@ export default {
         email,
         seminar,
       }).then((data) => {
-        if (data.result === 'success') this.$modal.show('success-message');
-        else if (data.result === 'email exists') this.$modal.show('email-exists-message');
+        if (data.result === 'success') {
+          this.showModal(
+            'success-message',
+            'Регистрация прошла успешно. Ждём вас на семинаре!',
+          );
+        } else {
+          this.showModal(
+            'email-exists-message',
+            'Человек с таким email уже зарегистрирован! Введите другой адрес.',
+          );
+        }
       });
+    },
+    showModal(name, message) {
+      this.modalName = name;
+      this.message = message;
+
+      this.$nextTick()
+        .then(() => {
+          this.$modal.show(name);
+        });
     },
     ...mapActions('users', [
       'registerUser',
