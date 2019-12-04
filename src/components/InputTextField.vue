@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  export default {
-    name: "InputTextField",
-    props: ['label', 'value'],
-  }
+export default {
+  name: 'InputTextField',
+  props: ['label', 'value'],
+};
 </script>
 
 <style lang="scss" type="text/scss" scoped>
