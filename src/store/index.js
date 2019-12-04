@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import Vuex from 'vuex';
 
 import seminars from './modules/seminars';
@@ -6,6 +7,8 @@ import lessons from './modules/lessons';
 import users from './modules/users';
 
 import createLogger from '../plugins/logger';
+
+Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
 

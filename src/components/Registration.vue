@@ -58,7 +58,6 @@ import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
 
-
 export default {
   name: 'Registration',
   components: {

@@ -3,11 +3,11 @@ import api from '../../apiSingleton';
 const stateObj = {
   loading: false,
   loadingFailed: false,
-  lessons: [],
+  lessons: null,
 };
 
 const getters = {
-  lessonsForCurMonth: (state) => state.lessons.map((el) => {
+  lessonsForCurMonth: (state) => (state.lessons || []).map((el) => {
     const date = new Date(el.date);
     return {
       date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
@@ -35,7 +35,7 @@ const actions = {
 
 const mutations = {
   fetchLessonsStart(state) {
-    state.loading = true;
+    state.loading = !state.lessons;
     state.loadingFailed = false;
   },
   fetchLessonsSuccess(state, data) {

@@ -5,6 +5,7 @@
                 class="calendar"
                 :events="lessons"
                 @month-changed="handleMonthChanged"
+                @click="crutchForCalendar"
         >
         </vue-event-calendar>
     </div>
@@ -23,13 +24,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('lessons', {lessons: 'lessonsForCurMonth'}),
+    ...mapGetters('lessons', { lessons: 'lessonsForCurMonth' }),
   },
   methods: {
     handleMonthChanged(data) {
       this.monthNumber = +data.split('.')[0];
       this.fetchLessonsByMonth(this.monthNumber);
-      document.getElementsByClassName('calendar')[0].addEventListener('click', this.func);
     },
     crutchForCalendar(event) {
       if (event.target.className !== 'date-num'
@@ -38,12 +38,6 @@ export default {
       }
     },
     ...mapActions('lessons', ['reWriteLessons', 'fetchLessonsByMonth']),
-  },
-  mounted() {
-    document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
-  },
-  updated() {
-    document.getElementsByClassName('calendar')[0].addEventListener('click', this.crutchForCalendar);
   },
 };
 </script>
