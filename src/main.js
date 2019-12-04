@@ -2,37 +2,23 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { CircleSpinner } from 'vue-spinners';
 import VModal from 'vue-js-modal';
+import Vuex from 'vuex';
+import vueEventCalendar from 'vue-event-calendar';
 
-import VueMaterial from 'vue-material';
 import store from './store';
 import App from './App.vue';
+import ClientMain from '@/pages/ClientMain';
 
-/* import {
-  MdDrawer,
-  MdButton,
-  MdContent,
-  MdToolbar,
-  MdIcon,
-  MdApp,
-  MdTable,
-} from 'vue-material/dist/components'; */
+import 'vue-event-calendar/dist/style.css';
 
 Vue.config.productionTip = false;
-Vue.component('CircleSpinner', CircleSpinner);
-Vue.use(VModal);
+
 Vue.use(VueRouter);
+Vue.use(Vuex);
 
-Vue.use(VueMaterial);
-
-/* Vue.use(MdDrawer);
-Vue.use(MdButton);
-Vue.use(MdContent);
-Vue.use(MdIcon);
-Vue.use(MdApp);
-Vue.use(MdToolbar);
-Vue.use(MdTable); */
-
-import ClientMain from '@/pages/ClientMain';
+Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353' });
+Vue.use(VModal);
+Vue.component('CircleSpinner', CircleSpinner);
 
 const router = new VueRouter({
   mode: 'history',

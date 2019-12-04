@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import 'font-awesome/css/font-awesome.min.css';
 import { mapState } from 'vuex';
 import Button from '../Button';
 

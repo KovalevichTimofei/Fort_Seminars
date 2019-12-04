@@ -11,14 +11,9 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import 'vue-event-calendar/dist/style.css';
-import vueEventCalendar from 'vue-event-calendar';
 import { mapGetters, mapActions } from 'vuex';
 import SectionTitle from '@/components/SectionTitle';
 
-
-Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353' });
 export default {
   name: 'DetailsPart',
   components: { SectionTitle },
