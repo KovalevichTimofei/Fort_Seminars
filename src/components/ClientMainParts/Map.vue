@@ -3,7 +3,7 @@
         <LMap
             :zoom="zoom"
             :center="center"
-            style="height:400px; overflow:hidden"
+            class="map"
         >
             <LTileLayer :url="url" :attribution="attribution" />
             <LMarker :lat-lng="place"></LMarker>
@@ -31,7 +31,6 @@ export default {
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      currentZoom: 17,
       place: latLng(52.11515, 23.69975),
     };
   },
@@ -41,5 +40,9 @@ export default {
 <style scoped>
     #place {
         height: 400px;
+    }
+    .map {
+        height:400px;
+        overflow:hidden;
     }
 </style>
