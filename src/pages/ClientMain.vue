@@ -39,14 +39,14 @@ export default {
   },
   computed: {
     ...mapState('seminars', {
-      seminarsLoading: (state) => state.loading,
+      seminarsLoading: 'loading',
       seminar: 'seminar',
     }),
     ...mapState('preachers', {
-      preacherLoading: (state) => state.loading,
+      preacherLoading: 'loading',
     }),
     ...mapState('lessons', {
-      lessonsLoading: (state) => state.loading,
+      lessonsLoading: 'loading',
     }),
   },
   methods: {
@@ -62,8 +62,8 @@ export default {
   },
   async created() {
     await this.fetchCurrentSeminar();
-    await this.fetchCurrentPreacher(this.seminar.preacher_id);
-    await this.fetchLessonsByMonth(this.monthNumber);
+    this.fetchCurrentPreacher(this.seminar.preacher_id);
+    this.fetchLessonsByMonth(this.monthNumber);
   },
 };
 </script>

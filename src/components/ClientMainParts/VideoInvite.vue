@@ -15,7 +15,7 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'VideoInvite',
-  computed: mapState('seminar', ['seminar']),
+  computed: mapState('seminars', ['seminar']),
 };
 </script>
 
