@@ -18,7 +18,10 @@ const actions = {
         commit(REGISTER_USER_SUCCESS, data);
         return data;
       })
-      .catch(() => commit(REGISTER_USER_FAIL));
+      .catch((data) => {
+        commit(REGISTER_USER_FAIL);
+        return data;
+      });
   },
 };
 

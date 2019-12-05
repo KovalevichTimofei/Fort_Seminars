@@ -86,10 +86,15 @@ export default {
             'success-message',
             'Регистрация прошла успешно. Ждём вас на семинаре!',
           );
-        } else {
+        } else if (data.message === 'email exists') {
           this.showModal(
             'email-exists-message',
             'Человек с таким email уже зарегистрирован! Введите другой адрес.',
+          );
+        } else {
+          this.showModal(
+            'unexpected-error',
+            'Неизвестная ошибка!',
           );
         }
       });
