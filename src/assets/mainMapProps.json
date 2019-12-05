@@ -2,8 +2,6 @@
   "zoom": 17,
   "center": [52.114755, 23.699162],
   "url": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-  "attribution":
-  "&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors",
   "place": [52.11515, 23.69975],
   "sunDaySchoolContour": {
     "latlngs": [
@@ -15,8 +13,8 @@
       [52.11521, 23.69981],
       [52.11521, 23.69973],
       [52.11527, 23.6995],
-      [52.11516, 23.6994],
-    ],
+      [52.11516, 23.6994]
+    ]
   },
   "terrytoryContour": {
     "latlngs": [
@@ -26,10 +24,10 @@
       [52.11572, 23.70016],
       [52.11553, 23.69965],
       [52.11556, 23.69947],
-      [52.11526, 23.69874],
+      [52.11526, 23.69874]
     ],
     "color": "red",
-    "fillColor': "none",
+    "fillColor": "none"
   },
   "pathToSeminarPlace": {
     "latlngs": [
@@ -67,6 +65,6 @@
       [52.11457, 23.70187],
       [52.11457, 23.70154],
       [52.11446, 23.70082]
-    ],
+    ]
   }
 }

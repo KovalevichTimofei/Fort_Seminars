@@ -1,30 +1,30 @@
 <template>
     <div id="place">
         <LMap
-            :zoom="zoom"
-            :center="center"
+            :zoom="mapProps.zoom"
+            :center="mapProps.center"
             class="map"
         >
-            <LTileLayer :url="url" :attribution="attribution" />
-            <LMarker :lat-lng="place" />
-            <LPolygon :lat-lngs="sunDaySchoolContour.latlngs"/>
+            <LTileLayer :url="mapProps.url" :attribution="attribution" />
+            <LMarker :lat-lng="mapProps.place" />
+            <LPolygon :lat-lngs="mapProps.sunDaySchoolContour.latlngs"/>
             <LPolygon
-                :lat-lngs="terrytoryContour.latlngs"
-                :color="terrytoryContour.color"
-                :fillColor="terrytoryContour.fillColor"
+                :lat-lngs="mapProps.terrytoryContour.latlngs"
+                :color="mapProps.terrytoryContour.color"
+                :fillColor="mapProps.terrytoryContour.fillColor"
             />
             <LPolyline
-                :lat-lngs="pathToSeminarPlace.latlngs"
+                :lat-lngs="mapProps.pathToSeminarPlace.latlngs"
             />
         </LMap>
     </div>
 </template>
 
 <script>
-import { latLng } from 'leaflet';
 import {
   LMap, LTileLayer, LMarker, LPolygon, LPolyline,
 } from 'vue2-leaflet';
+import mapProps from '../../assets/mainMapProps.json';
 
 export default {
   name: 'Map',
@@ -37,77 +37,12 @@ export default {
   },
   data() {
     return {
-      zoom: 17,
-      center: latLng(52.114755, 23.699162),
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      place: latLng(52.11515, 23.69975),
-      sunDaySchoolContour: {
-        latlngs: [
-          [52.11516, 23.6994],
-          [52.11506, 23.6997],
-          [52.11506, 23.69978],
-          [52.11516, 23.70011],
-          [52.11528, 23.70002],
-          [52.11521, 23.69981],
-          [52.11521, 23.69973],
-          [52.11527, 23.6995],
-          [52.11516, 23.6994],
-        ],
-      },
-      terrytoryContour: {
-        latlngs: [
-          [52.11526, 23.69874],
-          [52.11425, 23.69941],
-          [52.11458, 23.70091],
-          [52.11572, 23.70016],
-          [52.11553, 23.69965],
-          [52.11556, 23.69947],
-          [52.11526, 23.69874],
-        ],
-        color: 'red',
-        fillColor: 'none',
-      },
-      pathToSeminarPlace: {
-        latlngs: [
-          [52.10175, 23.6808],
-          [52.10181, 23.68096],
-          [52.10186, 23.68116],
-          [52.10191, 23.68127],
-          [52.102, 23.68127],
-          [52.10213, 23.68112],
-          [52.10327, 23.68398],
-          [52.10336, 23.68423],
-          [52.1034, 23.68455],
-          [52.1035, 23.68582],
-          [52.10357, 23.68618],
-          [52.10456, 23.68891],
-          [52.10486, 23.68963],
-          [52.10508, 23.69028],
-          [52.10558, 23.69208],
-          [52.10605, 23.69329],
-          [52.10629, 23.694],
-          [52.10691, 23.69763],
-          [52.1072, 23.69961],
-          [52.10985, 23.70567],
-          [52.11016, 23.70702],
-          [52.11035, 23.7065],
-          [52.11055, 23.70619],
-          [52.11109, 23.70553],
-          [52.11184, 23.70487],
-          [52.1123, 23.7046],
-          [52.11389, 23.70396],
-          [52.11438, 23.70387],
-          [52.11445, 23.70379],
-          [52.11428, 23.70269],
-          [52.11432, 23.70241],
-          [52.11457, 23.70187],
-          [52.11457, 23.70154],
-          [52.11446, 23.70082]
-        ],
-      },
     };
+  },
+  beforeCreate() {
+    this.mapProps = mapProps;
   },
 };
 </script>
