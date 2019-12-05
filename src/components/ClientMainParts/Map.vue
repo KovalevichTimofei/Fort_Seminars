@@ -1,21 +1,30 @@
 <template>
     <div id="place">
         <LMap
-            :zoom="zoom"
-            :center="center"
+            :zoom="mapProps.zoom"
+            :center="mapProps.center"
             class="map"
         >
-            <LTileLayer :url="url" :attribution="attribution" />
-            <LMarker :lat-lng="place"></LMarker>
+            <LTileLayer :url="mapProps.url" :attribution="attribution" />
+            <LMarker :lat-lng="mapProps.place" />
+            <LPolygon :lat-lngs="mapProps.sunDaySchoolContour.latlngs"/>
+            <LPolygon
+                :lat-lngs="mapProps.terrytoryContour.latlngs"
+                :color="mapProps.terrytoryContour.color"
+                :fillColor="mapProps.terrytoryContour.fillColor"
+            />
+            <LPolyline
+                :lat-lngs="mapProps.pathToSeminarPlace.latlngs"
+            />
         </LMap>
     </div>
 </template>
 
 <script>
-import { latLng } from 'leaflet';
 import {
-  LMap, LTileLayer, LMarker,
+  LMap, LTileLayer, LMarker, LPolygon, LPolyline,
 } from 'vue2-leaflet';
+import mapProps from '../../assets/mainMapProps.json';
 
 export default {
   name: 'Map',
@@ -23,16 +32,17 @@ export default {
     LMap,
     LTileLayer,
     LMarker,
+    LPolygon,
+    LPolyline,
   },
   data() {
     return {
-      zoom: 17,
-      center: latLng(52.114755, 23.699162),
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      place: latLng(52.11515, 23.69975),
     };
+  },
+  beforeCreate() {
+    this.mapProps = mapProps;
   },
 };
 </script>

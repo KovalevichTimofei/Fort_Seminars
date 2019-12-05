@@ -14,7 +14,7 @@ const getters = {
       title: el.part_numb ? `Часть ${el.part_numb}` : el.info,
       desc: el.part_numb ? el.info : '',
     };
-  })
+  }),
 };
 
 export const FETCH_LESSONS_START = 'fetchLessonsStart';
