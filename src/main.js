@@ -7,6 +7,7 @@ import { Icon } from 'leaflet';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+import Vuelidate from 'vuelidate';
 
 import store from './store';
 import App from './App.vue';
@@ -20,6 +21,8 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(vueEventCalendar, { locale: 'ru', color: '#cf5353' });
 Vue.use(VModal);
+Vue.use(Vuelidate);
+
 Vue.component('CircleSpinner', CircleSpinner);
 
 const router = new VueRouter({

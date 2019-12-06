@@ -3,19 +3,19 @@
         <SectionTitle title="Регистрация" classname="dark" class="title"/>
         <div class="form">
             <InputTextField
-                    v-model="name"
-                    label="Имя"
-                    v-bind:value="name"
+                v-model="name"
+                label="Имя"
+                v-bind:value="name"
             ></InputTextField>
             <InputTextField
-                    v-model="surname"
-                    label="Фамилия"
-                    v-bind:value="surname"
+                v-model="surname"
+                label="Фамилия"
+                v-bind:value="surname"
             ></InputTextField>
             <InputTextField
-                    v-model="email"
-                    label="Электронная почта"
-                    v-bind:value="email"
+                v-model="email"
+                label="Электронная почта"
+                v-bind:value="email"
             ></InputTextField>
             <Button
                @submit="handleRegister"
@@ -37,6 +37,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { required, email } from 'vuelidate/lib/validators';
 import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
@@ -47,6 +48,18 @@ export default {
     InputTextField,
     Button,
     SectionTitle,
+  },
+  validations: {
+    name: {
+      required,
+    },
+    surname: {
+      required,
+    },
+    email: {
+      required,
+      email,
+    },
   },
   data() {
     return {
@@ -60,25 +73,25 @@ export default {
   methods: {
     handleRegister() {
       const {
-        name, email, surname, seminar,
+        name, email: userEmail, surname, seminar,
       } = this;
-      const emailRegPattern = /.+@.+\..+/i;
 
-      if (name === '' || email === '' || surname === '') {
-        this.showModal('type-all-message', 'Заполните все поля!');
-        return;
-      }
-      if (!emailRegPattern.test(email)) {
+      if (!this.$v.email.email) {
         this.showModal(
           'email-message',
           'В поле "Электронная почта" должен быть адрес электронной почты!',
         );
         return;
       }
+      if (this.$v.$invalid) {
+        this.showModal('type-all-message', 'Заполните все поля!');
+        return;
+      }
+
       this.registerUser({
         name,
         surname,
-        email,
+        email: userEmail,
         seminar,
       }).then((data) => {
         if (data.result === 'success') {
