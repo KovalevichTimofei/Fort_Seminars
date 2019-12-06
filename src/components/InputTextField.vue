@@ -1,10 +1,13 @@
 <template>
-    <input
-            type="text"
-            v-bind:value="value"
-            v-bind:placeholder="label"
-            v-on:input="$emit('input', $event.target.value)"
-    >
+    <div>
+        <input
+                type="text"
+                v-bind:value="value"
+                v-bind:placeholder="label"
+                v-on:input="$emit('input', $event.target.value)"
+        >
+        <slot name="error-message"></slot>
+    </div>
 </template>
 
 <script>

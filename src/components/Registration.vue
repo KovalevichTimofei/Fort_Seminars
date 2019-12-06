@@ -6,7 +6,9 @@
                 v-model="name"
                 label="Имя"
                 v-bind:value="name"
-            />
+            >
+                <ValidationMessages :validations="$v.name" #error-message/>
+            </InputTextField>
             <InputTextField
                 v-model="surname"
                 label="Фамилия"
@@ -44,9 +46,11 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
+
 import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
+import ValidationMessages from '@/components/ValidationMessages';
 
 export default {
   name: 'Registration',
@@ -54,6 +58,7 @@ export default {
     InputTextField,
     Button,
     SectionTitle,
+    ValidationMessages,
   },
   validations: {
     name: {
@@ -75,6 +80,13 @@ export default {
       modalName: '',
       message: '',
     };
+  },
+  computed: {
+    ...mapState({
+      loading: (state) => state.users.loading,
+      success: (state) => state.users.success,
+      seminar: (state) => state.seminars.seminar,
+    }),
   },
   methods: {
     handleRegister() {
@@ -122,13 +134,6 @@ export default {
     ...mapActions('users', [
       'registerUser',
     ]),
-  },
-  computed: {
-    ...mapState({
-      loading: (state) => state.users.loading,
-      success: (state) => state.users.success,
-      seminar: (state) => state.seminars.seminar,
-    }),
   },
 };
 </script>
