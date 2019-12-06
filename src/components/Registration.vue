@@ -1,28 +1,27 @@
 <template>
     <div class="signup-part" id="signup">
-        <SectionTitle title="Регистрация" classname="dark" class="title"/>
+        <SectionTitle title="Регистрация" classname="dark" class="title" />
         <div class="form">
             <InputTextField
                 v-model="name"
                 label="Имя"
                 v-bind:value="name"
-            ></InputTextField>
+            />
             <InputTextField
                 v-model="surname"
                 label="Фамилия"
                 v-bind:value="surname"
-            ></InputTextField>
+            />
             <InputTextField
                 v-model="email"
                 label="Электронная почта"
                 v-bind:value="email"
-            ></InputTextField>
+            />
             <Button
                @submit="handleRegister"
                class="signup"
                title="Зарегистрироваться"
-            >
-            </Button>
+            />
         </div>
         <modal
             :name="modalName"
