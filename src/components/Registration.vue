@@ -17,10 +17,17 @@
                 label="Электронная почта"
                 v-bind:value="email"
             />
+            <div
+                v-show="!$v.email.email"
+                class="error"
+            >
+                В этом поле должен быть корректный адрес!
+            </div>
             <Button
                @submit="handleRegister"
                class="signup"
                title="Зарегистрироваться"
+               :disabled="$v.$invalid"
             />
         </div>
         <modal
@@ -75,15 +82,7 @@ export default {
         name, email: userEmail, surname, seminar,
       } = this;
 
-      if (!this.$v.email.email) {
-        this.showModal(
-          'email-message',
-          'В поле "Электронная почта" должен быть адрес электронной почты!',
-        );
-        return;
-      }
       if (this.$v.$invalid) {
-        this.showModal('type-all-message', 'Заполните все поля!');
         return;
       }
 
@@ -179,5 +178,12 @@ export default {
             color: $letters-color;
             margin: 12px 0;
         }
+    }
+    .error {
+        font-size: 0.85rem;
+        color: #f57f6c;
+        text-transform: none;
+        align-self: flex-start;
+        margin: 4px 0 0 24px;
     }
 </style>
