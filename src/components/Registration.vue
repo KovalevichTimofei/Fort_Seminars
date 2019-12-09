@@ -6,18 +6,19 @@
                 v-model="name"
                 label="Имя"
                 v-bind:value="name"
-            >
-                <ValidationMessages :validations="$v.name" #error-message/>
-            </InputTextField>
+                :validations="$v.name"
+            />
             <InputTextField
                 v-model="surname"
                 label="Фамилия"
                 v-bind:value="surname"
+                :validations="$v.surname"
             />
             <InputTextField
                 v-model="email"
                 label="Электронная почта"
                 v-bind:value="email"
+                :validations="$v.email"
             />
             <div
                 v-show="!$v.email.email"
@@ -50,7 +51,6 @@ import { required, email } from 'vuelidate/lib/validators';
 import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
-import ValidationMessages from '@/components/ValidationMessages';
 
 export default {
   name: 'Registration',
@@ -58,7 +58,6 @@ export default {
     InputTextField,
     Button,
     SectionTitle,
-    ValidationMessages,
   },
   validations: {
     name: {

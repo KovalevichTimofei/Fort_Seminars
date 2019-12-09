@@ -6,16 +6,22 @@
                 v-bind:placeholder="label"
                 v-on:input="$emit('input', $event.target.value)"
         >
-        <slot name="error-message"></slot>
+        <ValidationMessages :validations="validations"/>
     </div>
 </template>
 
 <script>
+import ValidationMessages from '@/components/ValidationMessages';
+
 export default {
   name: 'InputTextField',
+  components: {
+    ValidationMessages,
+  },
   props: {
     label: String,
     value: String,
+    validations: Object,
   },
 };
 </script>
