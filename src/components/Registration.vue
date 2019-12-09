@@ -5,27 +5,21 @@
             <InputTextField
                 v-model="name"
                 label="Имя"
-                v-bind:value="name"
                 :validations="$v.name"
+                @input="$v.name.$touch"
             />
             <InputTextField
                 v-model="surname"
                 label="Фамилия"
-                v-bind:value="surname"
                 :validations="$v.surname"
+                @input="$v.surname.$touch"
             />
             <InputTextField
                 v-model="email"
                 label="Электронная почта"
-                v-bind:value="email"
                 :validations="$v.email"
+                @input="$v.email.$touch"
             />
-            <div
-                v-show="!$v.email.email"
-                class="error"
-            >
-                В этом поле должен быть корректный адрес!
-            </div>
             <Button
                @submit="handleRegister"
                class="signup"
@@ -46,7 +40,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { required, email } from 'vuelidate/lib/validators';
+import { required, email, maxLength } from 'vuelidate/lib/validators';
 
 import InputTextField from '@/components/InputTextField';
 import Button from '@/components/Button';
@@ -69,6 +63,7 @@ export default {
     email: {
       required,
       email,
+      maxLength: maxLength(40),
     },
   },
   data() {
@@ -182,12 +177,5 @@ export default {
             color: $letters-color;
             margin: 12px 0;
         }
-    }
-    .error {
-        font-size: 0.85rem;
-        color: #f57f6c;
-        text-transform: none;
-        align-self: flex-start;
-        margin: 4px 0 0 24px;
     }
 </style>

@@ -6,7 +6,7 @@
                 v-bind:placeholder="label"
                 v-on:input="$emit('input', $event.target.value)"
         >
-        <ValidationMessages :validations="validations"/>
+        <ValidationMessages :validationInfoObject="validations"/>
     </div>
 </template>
 
