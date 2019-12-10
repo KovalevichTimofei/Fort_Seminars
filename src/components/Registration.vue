@@ -6,19 +6,16 @@
                 v-model="name"
                 label="Имя"
                 :validations="$v.name"
-                @input="$v.name.$touch"
             />
             <InputTextField
                 v-model="surname"
                 label="Фамилия"
                 :validations="$v.surname"
-                @input="$v.surname.$touch"
             />
             <InputTextField
                 v-model="email"
                 label="Электронная почта"
                 :validations="$v.email"
-                @input="$v.email.$touch"
             />
             <Button
                @submit="handleRegister"

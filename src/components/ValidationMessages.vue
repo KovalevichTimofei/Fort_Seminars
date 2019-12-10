@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import validationsMapping from '../assets/validationMapping';
+import validationsMapping from '../constants/validationMapping';
 
 export default {
   name: 'ValidationMessages',
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     obtainedValidationsTypes() {
-      return Object.keys(this.validationInfoObject).filter((el) => el.startsWith('$'));
+      return Object.keys(this.validationInfoObject).filter((el) => !el.startsWith('$'));
     },
   },
   beforeCreate() {

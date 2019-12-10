@@ -2,9 +2,9 @@
     <div>
         <input
                 type="text"
-                v-bind:value="value"
-                v-bind:placeholder="label"
-                v-on:input="$emit('input', $event.target.value)"
+                :value="value"
+                :placeholder="label"
+                @input="handleInput"
         >
         <ValidationMessages :validationInfoObject="validations"/>
     </div>
@@ -22,6 +22,12 @@ export default {
     label: String,
     value: String,
     validations: Object,
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit('input', event.target.value);
+      this.validations.$touch();
+    },
   },
 };
 </script>
