@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" @click="submit" :class="{ disabled }">
+    <button class="btn" @click="submit" :class="{ disabled }" :disabled="disabled">
         <a v-if="anchor" v-bind:href="anchor">
             {{title}}
         </a>
