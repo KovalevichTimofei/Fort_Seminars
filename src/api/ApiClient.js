@@ -50,6 +50,7 @@ export default class ApiClient {
   }) {
     let status; let
       init;
+
     const token = localStorage.getItem('auth_token');
 
     if (contentType === 'file' || contentType === 'logout' || method === 'get') {
@@ -57,6 +58,7 @@ export default class ApiClient {
         method,
         headers: {
           Accept: 'application/json',
+          Authorization: token,
         },
       };
     } else {
@@ -65,6 +67,7 @@ export default class ApiClient {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          Authorization: token,
         },
       };
     }

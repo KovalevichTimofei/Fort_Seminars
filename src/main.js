@@ -38,6 +38,7 @@ new Vue({
   render: (h) => h(App),
 }).$mount('#app');
 
+/* eslint-disable no-underscore-dangle */
 delete Icon.Default.prototype._getIconUrl;
 
 Icon.Default.mergeOptions({
