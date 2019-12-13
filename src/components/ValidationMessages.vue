@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     obtainedValidationsTypes() {
-      return Object.keys(this.validationInfoObject).filter((el) => !el.startsWith('$'));
+      return Object.keys(this.validationInfoObject.$params);
     },
   },
   beforeCreate() {
