@@ -1,10 +1,10 @@
 <template>
-    <div class="btn" @click="submit">
+    <button class="btn" @click="submit" :class="{ disabled }" :disabled="disabled">
         <a v-if="anchor" v-bind:href="anchor">
             {{title}}
         </a>
         <span v-else>{{title}}</span>
-    </div>
+    </button>
 </template>
 
 <script>
@@ -13,9 +13,13 @@ export default {
   props: {
     title: String,
     anchor: String,
+    disabled: Boolean,
   },
   methods: {
     submit() {
+      if (this.disabled) {
+        return;
+      }
       this.$emit('submit');
     },
   },
@@ -33,7 +37,8 @@ export default {
         line-height: 1rem;
         text-transform: uppercase;
         display: inline-block;
-        transition: background-color 300ms;
+        transition: background-color 300ms, opacity 500ms;
+        font-family: GothamProNarrow;
 
         a {
             text-decoration: none;
@@ -46,5 +51,10 @@ export default {
     }
     .btn::selection {
         background: transparent;
+    }
+    .btn.disabled {
+        cursor: auto;
+        background-color: white;
+        opacity: .4;
     }
 </style>

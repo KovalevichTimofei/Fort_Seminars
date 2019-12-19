@@ -24,7 +24,7 @@
 import {
   LMap, LTileLayer, LMarker, LPolygon, LPolyline,
 } from 'vue2-leaflet';
-import mapProps from '../../assets/mainMapProps.json';
+import mapProps from '../../constants/mainMapProps.json';
 
 export default {
   name: 'Map',

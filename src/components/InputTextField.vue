@@ -1,18 +1,33 @@
 <template>
-    <input
-            type="text"
-            v-bind:value="value"
-            v-bind:placeholder="label"
-            v-on:input="$emit('input', $event.target.value)"
-    >
+    <div>
+        <input
+                type="text"
+                :value="value"
+                :placeholder="label"
+                @input="handleInput"
+        >
+        <ValidationMessages :validationInfoObject="validations"/>
+    </div>
 </template>
 
 <script>
+import ValidationMessages from '@/components/ValidationMessages';
+
 export default {
   name: 'InputTextField',
+  components: {
+    ValidationMessages,
+  },
   props: {
     label: String,
     value: String,
+    validations: Object,
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit('input', event.target.value);
+      this.validations.$touch();
+    },
   },
 };
 </script>
